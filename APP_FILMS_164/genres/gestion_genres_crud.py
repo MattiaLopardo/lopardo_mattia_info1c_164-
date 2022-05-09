@@ -43,11 +43,13 @@ def genres_afficher(order_by, id_genre_sel):
                     # donc, je précise les champs à afficher
                     # Constitution d'un dictionnaire pour associer l'id du genre sélectionné avec un nom de variable
                     valeur_id_genre_selected_dictionnaire = {"value_id_categorie_selected": id_genre_sel}
-                    strsql_genres_afficher = """SELECT id_categorie, nom_categorie FROM t_categorie WHERE id_categorie = %(value_id_categorie_selected)s"""
+                    strsql_genres_afficher = """SELECT id_categorie, nom_categorie FROM t_categorie WHERE id_categorie 
+                    = %(value_id_categorie_selected)s"""
 
                     mc_afficher.execute(strsql_genres_afficher, valeur_id_genre_selected_dictionnaire)
                 else:
-                    strsql_genres_afficher = """SELECT id_categorie, nom_categorie FROM t_categorie ORDER BY id_categorie DESC"""
+                    strsql_genres_afficher = """SELECT id_categorie, nom_categorie FROM t_categorie ORDER BY 
+                    id_categorie DESC"""
 
                     mc_afficher.execute(strsql_genres_afficher)
 
@@ -106,7 +108,8 @@ def genres_ajouter_wtf():
                 valeurs_insertion_dictionnaire = {"value_nom_categorie": name_genre}
                 print("valeurs_insertion_dictionnaire ", valeurs_insertion_dictionnaire)
 
-                strsql_insert_genre = """INSERT INTO t_categorie (id_categorie,nom_categorie) VALUES (NULL,%(value_nom_categorie)s) """
+                strsql_insert_genre = """INSERT INTO t_categorie (id_categorie,nom_categorie) VALUES 
+                (NULL,%(value_nom_categorie)s) """
                 with DBconnection() as mconn_bd:
                     mconn_bd.execute(strsql_insert_genre, valeurs_insertion_dictionnaire)
 
@@ -165,7 +168,8 @@ def genre_update_wtf():
                                           }
             print("valeur_update_dictionnaire ", valeur_update_dictionnaire)
 
-            str_sql_update_intitulegenre = """UPDATE t_categorie SET nom_categorie = %(value_name_categorie)s WHERE id_genre = %(value_id_categorie)s """
+            str_sql_update_intitulegenre = """UPDATE t_categorie SET nom_categorie = %(value_name_categorie)s 
+            WHERE id_categorie = %(value_id_categorie)s """
             with DBconnection() as mconn_bd:
                 mconn_bd.execute(str_sql_update_intitulegenre, valeur_update_dictionnaire)
 
