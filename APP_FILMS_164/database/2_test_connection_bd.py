@@ -10,7 +10,7 @@ try:
         Une seule requête pour montrer la récupération des données de la BD en MySql.
     """
     strsql_genres_afficher = """SELECT * 
-FROM adresse adr
+FROM t_adresse adr
 WHERE adr.NPA >= 1000;"""
 
     with DBconnection() as db:

@@ -17,7 +17,7 @@ USE Lopardo_Mattia_INFO1C_164_BD;
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 05 Avril 2022 à 14:33
+-- Généré le :  Lun 09 Mai 2022 à 06:40
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -37,10 +37,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `adresse`
+-- Structure de la table `t_adresse`
 --
 
-CREATE TABLE `adresse` (
+CREATE TABLE `t_adresse` (
   `id_adresse` int(11) NOT NULL,
   `adresse` varchar(50) DEFAULT NULL,
   `NPA` int(25) DEFAULT NULL,
@@ -48,10 +48,10 @@ CREATE TABLE `adresse` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `adresse`
+-- Contenu de la table `t_adresse`
 --
 
-INSERT INTO `adresse` (`id_adresse`, `adresse`, `NPA`, `ville`) VALUES
+INSERT INTO `t_adresse` (`id_adresse`, `adresse`, `NPA`, `ville`) VALUES
 (1, 'Via Altisio 36', 1688, 'Sommentier'),
 (2, 'Via Schliffras 98', 5637, 'Geltwil'),
 (3, 'Via Franscini 6', 9327, 'Tübach'),
@@ -73,28 +73,28 @@ INSERT INTO `adresse` (`id_adresse`, `adresse`, `NPA`, `ville`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `categorie`
+-- Structure de la table `t_categorie`
 --
 
-CREATE TABLE `categorie` (
+CREATE TABLE `t_categorie` (
   `id_categorie` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `categorie`
+-- Contenu de la table `t_categorie`
 --
 
-INSERT INTO `categorie` (`id_categorie`) VALUES
+INSERT INTO `t_categorie` (`id_categorie`) VALUES
 ('bénéficiaire'),
 ('technicien');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `demande`
+-- Structure de la table `t_demande`
 --
 
-CREATE TABLE `demande` (
+CREATE TABLE `t_demande` (
   `id_demande` int(11) NOT NULL,
   `nom_demande` varchar(40) DEFAULT NULL,
   `numero_demande` int(11) NOT NULL,
@@ -102,10 +102,10 @@ CREATE TABLE `demande` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `demande`
+-- Contenu de la table `t_demande`
 --
 
-INSERT INTO `demande` (`id_demande`, `nom_demande`, `numero_demande`, `description_demande`) VALUES
+INSERT INTO `t_demande` (`id_demande`, `nom_demande`, `numero_demande`, `description_demande`) VALUES
 (1, 'nouveau laptop', 9983525, 'Le bénéficiare aimerait un nouveau laptop pour travailler correctement'),
 (2, 'nouvelle docking', 9924323, 'Le bénéficiare aimerait une nouvelle docking pour travailler correctement'),
 (3, 'nouvelle souris', 9892444, 'Le bénéficiare aimerait une nouvelle souris pour travailler correctement'),
@@ -115,20 +115,20 @@ INSERT INTO `demande` (`id_demande`, `nom_demande`, `numero_demande`, `descripti
 -- --------------------------------------------------------
 
 --
--- Structure de la table `departement`
+-- Structure de la table `t_departement`
 --
 
-CREATE TABLE `departement` (
+CREATE TABLE `t_departement` (
   `id_departement` int(11) NOT NULL,
   `nom_departement` varchar(50) DEFAULT NULL,
   `num_departement` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `departement`
+-- Contenu de la table `t_departement`
 --
 
-INSERT INTO `departement` (`id_departement`, `nom_departement`, `num_departement`) VALUES
+INSERT INTO `t_departement` (`id_departement`, `nom_departement`, `num_departement`) VALUES
 (1, 'institutions et\r\ndu territoire\r\nDIT', 1),
 (2, 'formation, de la jeunesse\r\n et de la culture\r\nDFJC', 2),
 (3, 'l’environnement\r\net de la sécurité\r\nDES', 3),
@@ -140,20 +140,20 @@ INSERT INTO `departement` (`id_departement`, `nom_departement`, `num_departement
 -- --------------------------------------------------------
 
 --
--- Structure de la table `dep_avoir_mail`
+-- Structure de la table `t_dep_avoir_mail`
 --
 
-CREATE TABLE `dep_avoir_mail` (
+CREATE TABLE `t_dep_avoir_mail` (
   `id_dep_avoir_mail` int(11) NOT NULL,
   `FK_departement` int(11) NOT NULL,
   `FK_mail` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `dep_avoir_mail`
+-- Contenu de la table `t_dep_avoir_mail`
 --
 
-INSERT INTO `dep_avoir_mail` (`id_dep_avoir_mail`, `FK_departement`, `FK_mail`) VALUES
+INSERT INTO `t_dep_avoir_mail` (`id_dep_avoir_mail`, `FK_departement`, `FK_mail`) VALUES
 (1, 1, 11),
 (2, 2, 12),
 (3, 3, 13),
@@ -165,20 +165,20 @@ INSERT INTO `dep_avoir_mail` (`id_dep_avoir_mail`, `FK_departement`, `FK_mail`) 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `dep_avoir_tel`
+-- Structure de la table `t_dep_avoir_tel`
 --
 
-CREATE TABLE `dep_avoir_tel` (
+CREATE TABLE `t_dep_avoir_tel` (
   `id_dep_avoir_tel` int(11) NOT NULL,
   `FK_departement` int(11) NOT NULL,
   `FK_telephone` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `dep_avoir_tel`
+-- Contenu de la table `t_dep_avoir_tel`
 --
 
-INSERT INTO `dep_avoir_tel` (`id_dep_avoir_tel`, `FK_departement`, `FK_telephone`) VALUES
+INSERT INTO `t_dep_avoir_tel` (`id_dep_avoir_tel`, `FK_departement`, `FK_telephone`) VALUES
 (1, 1, 11),
 (2, 2, 12),
 (3, 3, 13),
@@ -190,10 +190,10 @@ INSERT INTO `dep_avoir_tel` (`id_dep_avoir_tel`, `FK_departement`, `FK_telephone
 -- --------------------------------------------------------
 
 --
--- Structure de la table `dep_se_trouver_adresse`
+-- Structure de la table `t_dep_se_trouver_adresse`
 --
 
-CREATE TABLE `dep_se_trouver_adresse` (
+CREATE TABLE `t_dep_se_trouver_adresse` (
   `id_dep_se_trouver_adresse` int(11) NOT NULL,
   `FK_departement` int(11) NOT NULL,
   `FK_adresse` int(11) NOT NULL,
@@ -201,10 +201,10 @@ CREATE TABLE `dep_se_trouver_adresse` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `dep_se_trouver_adresse`
+-- Contenu de la table `t_dep_se_trouver_adresse`
 --
 
-INSERT INTO `dep_se_trouver_adresse` (`id_dep_se_trouver_adresse`, `FK_departement`, `FK_adresse`, `date_adresse`) VALUES
+INSERT INTO `t_dep_se_trouver_adresse` (`id_dep_se_trouver_adresse`, `FK_departement`, `FK_adresse`, `date_adresse`) VALUES
 (1, 1, 11, '2022-04-05'),
 (2, 2, 12, '2022-04-05'),
 (3, 3, 13, '2022-04-05'),
@@ -216,10 +216,10 @@ INSERT INTO `dep_se_trouver_adresse` (`id_dep_se_trouver_adresse`, `FK_departeme
 -- --------------------------------------------------------
 
 --
--- Structure de la table `incident`
+-- Structure de la table `t_incident`
 --
 
-CREATE TABLE `incident` (
+CREATE TABLE `t_incident` (
   `id_incident` int(11) NOT NULL,
   `nom_incident` varchar(40) DEFAULT NULL,
   `numero_incident` int(11) NOT NULL,
@@ -227,29 +227,29 @@ CREATE TABLE `incident` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `incident`
+-- Contenu de la table `t_incident`
 --
 
-INSERT INTO `incident` (`id_incident`, `nom_incident`, `numero_incident`, `description_incident`) VALUES
+INSERT INTO `t_incident` (`id_incident`, `nom_incident`, `numero_incident`, `description_incident`) VALUES
 (1, 'laptop cassé', 9738754, 'Le bénéficiaire à besoin d\'un nouveau laptop au plus vite'),
 (2, 'écran fissuré', 9718634, 'Le bénéficiaire à besoin d\'un nouveau écran au plus vite');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `mail`
+-- Structure de la table `t_mail`
 --
 
-CREATE TABLE `mail` (
+CREATE TABLE `t_mail` (
   `id_mail` int(11) NOT NULL,
   `nom_mail` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `mail`
+-- Contenu de la table `t_mail`
 --
 
-INSERT INTO `mail` (`id_mail`, `nom_mail`) VALUES
+INSERT INTO `t_mail` (`id_mail`, `nom_mail`) VALUES
 (1, 'DupondPierre@eduvaud.vd'),
 (2, 'WatsonMarie@eduvaud.vd'),
 (3, 'pattinsonpeter@eduvaud.vd'),
@@ -271,10 +271,10 @@ INSERT INTO `mail` (`id_mail`, `nom_mail`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `personne`
+-- Structure de la table `t_personne`
 --
 
-CREATE TABLE `personne` (
+CREATE TABLE `t_personne` (
   `id_personne` int(11) NOT NULL,
   `nom_personne` varchar(30) DEFAULT NULL,
   `prenom_personne` varchar(30) DEFAULT NULL,
@@ -282,10 +282,10 @@ CREATE TABLE `personne` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `personne`
+-- Contenu de la table `t_personne`
 --
 
-INSERT INTO `personne` (`id_personne`, `nom_personne`, `prenom_personne`, `date_naiss_personne`) VALUES
+INSERT INTO `t_personne` (`id_personne`, `nom_personne`, `prenom_personne`, `date_naiss_personne`) VALUES
 (1, 'Dupond', 'Pierre', '1994-08-10'),
 (2, 'Watson', 'Marie', '1993-10-12'),
 (3, 'pattinson', 'peter', '1980-01-09'),
@@ -300,10 +300,10 @@ INSERT INTO `personne` (`id_personne`, `nom_personne`, `prenom_personne`, `date_
 -- --------------------------------------------------------
 
 --
--- Structure de la table `pers_attribuer_dem`
+-- Structure de la table `t_pers_attribuer_dem`
 --
 
-CREATE TABLE `pers_attribuer_dem` (
+CREATE TABLE `t_pers_attribuer_dem` (
   `id_pers_attribuer_dem` int(11) NOT NULL,
   `FK_personne` int(11) NOT NULL,
   `FK_demande` int(11) NOT NULL,
@@ -311,10 +311,10 @@ CREATE TABLE `pers_attribuer_dem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `pers_attribuer_dem`
+-- Contenu de la table `t_pers_attribuer_dem`
 --
 
-INSERT INTO `pers_attribuer_dem` (`id_pers_attribuer_dem`, `FK_personne`, `FK_demande`, `date_attribution`) VALUES
+INSERT INTO `t_pers_attribuer_dem` (`id_pers_attribuer_dem`, `FK_personne`, `FK_demande`, `date_attribution`) VALUES
 (1, 5, 1, '2022-04-05'),
 (2, 6, 2, '2022-04-05'),
 (3, 7, 3, '2022-04-05'),
@@ -324,10 +324,10 @@ INSERT INTO `pers_attribuer_dem` (`id_pers_attribuer_dem`, `FK_personne`, `FK_de
 -- --------------------------------------------------------
 
 --
--- Structure de la table `pers_attribuer_inc`
+-- Structure de la table `t_pers_attribuer_inc`
 --
 
-CREATE TABLE `pers_attribuer_inc` (
+CREATE TABLE `t_pers_attribuer_inc` (
   `id_pers_attribuer_inc` int(11) NOT NULL,
   `FK_personne` int(11) NOT NULL,
   `Fk_incident` int(11) NOT NULL,
@@ -335,20 +335,20 @@ CREATE TABLE `pers_attribuer_inc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `pers_attribuer_inc`
+-- Contenu de la table `t_pers_attribuer_inc`
 --
 
-INSERT INTO `pers_attribuer_inc` (`id_pers_attribuer_inc`, `FK_personne`, `Fk_incident`, `date_attribution`) VALUES
+INSERT INTO `t_pers_attribuer_inc` (`id_pers_attribuer_inc`, `FK_personne`, `Fk_incident`, `date_attribution`) VALUES
 (1, 10, 1, '2022-04-05'),
 (2, 6, 2, '2022-04-05');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `pers_auteur_dem`
+-- Structure de la table `t_pers_auteur_dem`
 --
 
-CREATE TABLE `pers_auteur_dem` (
+CREATE TABLE `t_pers_auteur_dem` (
   `id_pers_auteur_dem` int(11) NOT NULL,
   `FK_personne` int(11) NOT NULL,
   `FK_demande` int(11) NOT NULL,
@@ -356,10 +356,10 @@ CREATE TABLE `pers_auteur_dem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `pers_auteur_dem`
+-- Contenu de la table `t_pers_auteur_dem`
 --
 
-INSERT INTO `pers_auteur_dem` (`id_pers_auteur_dem`, `FK_personne`, `FK_demande`, `date_crea_dem`) VALUES
+INSERT INTO `t_pers_auteur_dem` (`id_pers_auteur_dem`, `FK_personne`, `FK_demande`, `date_crea_dem`) VALUES
 (1, 1, 1, '2022-04-05'),
 (2, 2, 2, '2022-04-05'),
 (3, 1, 3, '2022-04-05'),
@@ -369,10 +369,10 @@ INSERT INTO `pers_auteur_dem` (`id_pers_auteur_dem`, `FK_personne`, `FK_demande`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `pers_auteur_inc`
+-- Structure de la table `t_pers_auteur_inc`
 --
 
-CREATE TABLE `pers_auteur_inc` (
+CREATE TABLE `t_pers_auteur_inc` (
   `id_pers_auteur_inc` int(11) NOT NULL,
   `FK_personne` int(11) NOT NULL,
   `FK_incident` int(11) NOT NULL,
@@ -380,30 +380,30 @@ CREATE TABLE `pers_auteur_inc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `pers_auteur_inc`
+-- Contenu de la table `t_pers_auteur_inc`
 --
 
-INSERT INTO `pers_auteur_inc` (`id_pers_auteur_inc`, `FK_personne`, `FK_incident`, `date_crea_inc`) VALUES
+INSERT INTO `t_pers_auteur_inc` (`id_pers_auteur_inc`, `FK_personne`, `FK_incident`, `date_crea_inc`) VALUES
 (1, 3, 1, '2022-04-05'),
 (2, 4, 2, '2022-04-05');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `pers_avoir_mail`
+-- Structure de la table `t_pers_avoir_mail`
 --
 
-CREATE TABLE `pers_avoir_mail` (
+CREATE TABLE `t_pers_avoir_mail` (
   `id_pers_avoir_mail` int(11) NOT NULL,
   `FK_personne` int(11) NOT NULL,
   `FK_mail` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `pers_avoir_mail`
+-- Contenu de la table `t_pers_avoir_mail`
 --
 
-INSERT INTO `pers_avoir_mail` (`id_pers_avoir_mail`, `FK_personne`, `FK_mail`) VALUES
+INSERT INTO `t_pers_avoir_mail` (`id_pers_avoir_mail`, `FK_personne`, `FK_mail`) VALUES
 (1, 1, 1),
 (2, 2, 2),
 (3, 3, 3),
@@ -418,20 +418,20 @@ INSERT INTO `pers_avoir_mail` (`id_pers_avoir_mail`, `FK_personne`, `FK_mail`) V
 -- --------------------------------------------------------
 
 --
--- Structure de la table `pers_avoir_tel`
+-- Structure de la table `t_pers_avoir_tel`
 --
 
-CREATE TABLE `pers_avoir_tel` (
+CREATE TABLE `t_pers_avoir_tel` (
   `id_pers_avoir_tel` int(11) NOT NULL,
   `FK_personne` int(11) NOT NULL,
   `FK_telephone` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `pers_avoir_tel`
+-- Contenu de la table `t_pers_avoir_tel`
 --
 
-INSERT INTO `pers_avoir_tel` (`id_pers_avoir_tel`, `FK_personne`, `FK_telephone`) VALUES
+INSERT INTO `t_pers_avoir_tel` (`id_pers_avoir_tel`, `FK_personne`, `FK_telephone`) VALUES
 (1, 1, 1),
 (2, 2, 2),
 (3, 3, 3),
@@ -446,20 +446,20 @@ INSERT INTO `pers_avoir_tel` (`id_pers_avoir_tel`, `FK_personne`, `FK_telephone`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `pers_categorie`
+-- Structure de la table `t_pers_categorie`
 --
 
-CREATE TABLE `pers_categorie` (
+CREATE TABLE `t_pers_categorie` (
   `id_pers_categorie` int(11) NOT NULL,
   `FK_personne` int(11) NOT NULL,
   `FK_categorie` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `pers_categorie`
+-- Contenu de la table `t_pers_categorie`
 --
 
-INSERT INTO `pers_categorie` (`id_pers_categorie`, `FK_personne`, `FK_categorie`) VALUES
+INSERT INTO `t_pers_categorie` (`id_pers_categorie`, `FK_personne`, `FK_categorie`) VALUES
 (1, 1, 'bénéficiaire'),
 (2, 2, 'bénéficiaire'),
 (3, 3, 'bénéficiaire'),
@@ -474,10 +474,10 @@ INSERT INTO `pers_categorie` (`id_pers_categorie`, `FK_personne`, `FK_categorie`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `pers_se_trouver_adresse`
+-- Structure de la table `t_pers_se_trouver_adresse`
 --
 
-CREATE TABLE `pers_se_trouver_adresse` (
+CREATE TABLE `t_pers_se_trouver_adresse` (
   `id_pers_se_trouver_adresse` int(11) NOT NULL,
   `FK_personne` int(11) NOT NULL,
   `FK_adresse` int(11) NOT NULL,
@@ -485,10 +485,10 @@ CREATE TABLE `pers_se_trouver_adresse` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `pers_se_trouver_adresse`
+-- Contenu de la table `t_pers_se_trouver_adresse`
 --
 
-INSERT INTO `pers_se_trouver_adresse` (`id_pers_se_trouver_adresse`, `FK_personne`, `FK_adresse`, `date_adresse`) VALUES
+INSERT INTO `t_pers_se_trouver_adresse` (`id_pers_se_trouver_adresse`, `FK_personne`, `FK_adresse`, `date_adresse`) VALUES
 (1, 1, 1, '2022-04-05'),
 (2, 2, 2, '2022-04-05'),
 (3, 3, 3, '2022-04-05'),
@@ -503,10 +503,10 @@ INSERT INTO `pers_se_trouver_adresse` (`id_pers_se_trouver_adresse`, `FK_personn
 -- --------------------------------------------------------
 
 --
--- Structure de la table `pers_travailler_dep`
+-- Structure de la table `t_pers_travailler_dep`
 --
 
-CREATE TABLE `pers_travailler_dep` (
+CREATE TABLE `t_pers_travailler_dep` (
   `id_pers_travailler_dep` int(11) NOT NULL,
   `FK_personne` int(11) DEFAULT NULL,
   `FK_departement` int(11) DEFAULT NULL,
@@ -514,10 +514,10 @@ CREATE TABLE `pers_travailler_dep` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `pers_travailler_dep`
+-- Contenu de la table `t_pers_travailler_dep`
 --
 
-INSERT INTO `pers_travailler_dep` (`id_pers_travailler_dep`, `FK_personne`, `FK_departement`, `date_debut`) VALUES
+INSERT INTO `t_pers_travailler_dep` (`id_pers_travailler_dep`, `FK_personne`, `FK_departement`, `date_debut`) VALUES
 (1, 1, 3, '2022-04-05'),
 (2, 2, 1, '2022-04-05'),
 (3, 3, 2, '2022-04-05'),
@@ -532,19 +532,19 @@ INSERT INTO `pers_travailler_dep` (`id_pers_travailler_dep`, `FK_personne`, `FK_
 -- --------------------------------------------------------
 
 --
--- Structure de la table `telephone`
+-- Structure de la table `t_telephone`
 --
 
-CREATE TABLE `telephone` (
+CREATE TABLE `t_telephone` (
   `id_telephone` int(11) NOT NULL,
   `num_telephone` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `telephone`
+-- Contenu de la table `t_telephone`
 --
 
-INSERT INTO `telephone` (`id_telephone`, `num_telephone`) VALUES
+INSERT INTO `t_telephone` (`id_telephone`, `num_telephone`) VALUES
 (1, 796544323),
 (2, 795436787),
 (3, 793458745),
@@ -568,147 +568,147 @@ INSERT INTO `telephone` (`id_telephone`, `num_telephone`) VALUES
 --
 
 --
--- Index pour la table `adresse`
+-- Index pour la table `t_adresse`
 --
-ALTER TABLE `adresse`
+ALTER TABLE `t_adresse`
   ADD PRIMARY KEY (`id_adresse`);
 
 --
--- Index pour la table `categorie`
+-- Index pour la table `t_categorie`
 --
-ALTER TABLE `categorie`
+ALTER TABLE `t_categorie`
   ADD PRIMARY KEY (`id_categorie`);
 
 --
--- Index pour la table `demande`
+-- Index pour la table `t_demande`
 --
-ALTER TABLE `demande`
+ALTER TABLE `t_demande`
   ADD PRIMARY KEY (`id_demande`);
 
 --
--- Index pour la table `departement`
+-- Index pour la table `t_departement`
 --
-ALTER TABLE `departement`
+ALTER TABLE `t_departement`
   ADD PRIMARY KEY (`id_departement`);
 
 --
--- Index pour la table `dep_avoir_mail`
+-- Index pour la table `t_dep_avoir_mail`
 --
-ALTER TABLE `dep_avoir_mail`
+ALTER TABLE `t_dep_avoir_mail`
   ADD PRIMARY KEY (`id_dep_avoir_mail`),
   ADD KEY `FKmail_dep` (`FK_departement`),
   ADD KEY `FKmail_dep_mail` (`FK_mail`);
 
 --
--- Index pour la table `dep_avoir_tel`
+-- Index pour la table `t_dep_avoir_tel`
 --
-ALTER TABLE `dep_avoir_tel`
+ALTER TABLE `t_dep_avoir_tel`
   ADD PRIMARY KEY (`id_dep_avoir_tel`),
   ADD KEY `FKtelephone_dep` (`FK_departement`),
   ADD KEY `FKtelephone_dep_tel` (`FK_telephone`);
 
 --
--- Index pour la table `dep_se_trouver_adresse`
+-- Index pour la table `t_dep_se_trouver_adresse`
 --
-ALTER TABLE `dep_se_trouver_adresse`
+ALTER TABLE `t_dep_se_trouver_adresse`
   ADD PRIMARY KEY (`id_dep_se_trouver_adresse`),
   ADD KEY `FKadresse_dep` (`FK_departement`),
   ADD KEY `FKadresse_dep_adresse` (`FK_adresse`);
 
 --
--- Index pour la table `incident`
+-- Index pour la table `t_incident`
 --
-ALTER TABLE `incident`
+ALTER TABLE `t_incident`
   ADD PRIMARY KEY (`id_incident`);
 
 --
--- Index pour la table `mail`
+-- Index pour la table `t_mail`
 --
-ALTER TABLE `mail`
+ALTER TABLE `t_mail`
   ADD PRIMARY KEY (`id_mail`);
 
 --
--- Index pour la table `personne`
+-- Index pour la table `t_personne`
 --
-ALTER TABLE `personne`
+ALTER TABLE `t_personne`
   ADD PRIMARY KEY (`id_personne`);
 
 --
--- Index pour la table `pers_attribuer_dem`
+-- Index pour la table `t_pers_attribuer_dem`
 --
-ALTER TABLE `pers_attribuer_dem`
+ALTER TABLE `t_pers_attribuer_dem`
   ADD PRIMARY KEY (`id_pers_attribuer_dem`),
   ADD KEY `FKpersonne_attr_dem` (`FK_personne`),
   ADD KEY `FKdem_attr` (`FK_demande`);
 
 --
--- Index pour la table `pers_attribuer_inc`
+-- Index pour la table `t_pers_attribuer_inc`
 --
-ALTER TABLE `pers_attribuer_inc`
+ALTER TABLE `t_pers_attribuer_inc`
   ADD PRIMARY KEY (`id_pers_attribuer_inc`),
   ADD KEY `FKinc_attr_inc` (`Fk_incident`),
   ADD KEY `FKinc_attr_pers` (`FK_personne`);
 
 --
--- Index pour la table `pers_auteur_dem`
+-- Index pour la table `t_pers_auteur_dem`
 --
-ALTER TABLE `pers_auteur_dem`
+ALTER TABLE `t_pers_auteur_dem`
   ADD PRIMARY KEY (`id_pers_auteur_dem`),
   ADD KEY `FKdem_auteur` (`FK_demande`),
   ADD KEY `FKdem_auteur_pers` (`FK_personne`);
 
 --
--- Index pour la table `pers_auteur_inc`
+-- Index pour la table `t_pers_auteur_inc`
 --
-ALTER TABLE `pers_auteur_inc`
+ALTER TABLE `t_pers_auteur_inc`
   ADD PRIMARY KEY (`id_pers_auteur_inc`),
   ADD KEY `FKinc_auteur_pers` (`FK_personne`),
   ADD KEY `FKinc_auteur_inc` (`FK_incident`);
 
 --
--- Index pour la table `pers_avoir_mail`
+-- Index pour la table `t_pers_avoir_mail`
 --
-ALTER TABLE `pers_avoir_mail`
+ALTER TABLE `t_pers_avoir_mail`
   ADD PRIMARY KEY (`id_pers_avoir_mail`),
   ADD KEY `FKmail_pers` (`FK_personne`),
   ADD KEY `FKmail_pers_mail` (`FK_mail`);
 
 --
--- Index pour la table `pers_avoir_tel`
+-- Index pour la table `t_pers_avoir_tel`
 --
-ALTER TABLE `pers_avoir_tel`
+ALTER TABLE `t_pers_avoir_tel`
   ADD PRIMARY KEY (`id_pers_avoir_tel`),
   ADD KEY `FKtelephone_pers` (`FK_telephone`),
   ADD KEY `FKtelephone_pers_pers` (`FK_personne`);
 
 --
--- Index pour la table `pers_categorie`
+-- Index pour la table `t_pers_categorie`
 --
-ALTER TABLE `pers_categorie`
+ALTER TABLE `t_pers_categorie`
   ADD PRIMARY KEY (`id_pers_categorie`),
   ADD KEY `FKpersonne` (`FK_personne`),
   ADD KEY `FKcategorie` (`FK_categorie`);
 
 --
--- Index pour la table `pers_se_trouver_adresse`
+-- Index pour la table `t_pers_se_trouver_adresse`
 --
-ALTER TABLE `pers_se_trouver_adresse`
+ALTER TABLE `t_pers_se_trouver_adresse`
   ADD PRIMARY KEY (`id_pers_se_trouver_adresse`),
   ADD KEY `FKpersonne_adresse` (`FK_personne`),
   ADD KEY `FKadresse_adresse` (`FK_adresse`);
 
 --
--- Index pour la table `pers_travailler_dep`
+-- Index pour la table `t_pers_travailler_dep`
 --
-ALTER TABLE `pers_travailler_dep`
+ALTER TABLE `t_pers_travailler_dep`
   ADD PRIMARY KEY (`id_pers_travailler_dep`),
   ADD KEY `FKpers_travailler_dep` (`FK_departement`),
   ADD KEY `FKpers_travailler_dep_pers` (`FK_personne`);
 
 --
--- Index pour la table `telephone`
+-- Index pour la table `t_telephone`
 --
-ALTER TABLE `telephone`
+ALTER TABLE `t_telephone`
   ADD PRIMARY KEY (`id_telephone`);
 
 --
@@ -716,89 +716,91 @@ ALTER TABLE `telephone`
 --
 
 --
--- Contraintes pour la table `dep_avoir_mail`
+-- Contraintes pour la table `t_dep_avoir_mail`
 --
-ALTER TABLE `dep_avoir_mail`
-  ADD CONSTRAINT `FKmail_dep` FOREIGN KEY (`FK_departement`) REFERENCES `departement` (`id_departement`),
-  ADD CONSTRAINT `FKmail_dep_mail` FOREIGN KEY (`FK_mail`) REFERENCES `mail` (`id_mail`);
+ALTER TABLE `t_dep_avoir_mail`
+  ADD CONSTRAINT `FKmail_dep` FOREIGN KEY (`FK_departement`) REFERENCES `t_departement` (`id_departement`),
+  ADD CONSTRAINT `FKmail_dep_mail` FOREIGN KEY (`FK_mail`) REFERENCES `t_mail` (`id_mail`);
 
 --
--- Contraintes pour la table `dep_avoir_tel`
+-- Contraintes pour la table `t_dep_avoir_tel`
 --
-ALTER TABLE `dep_avoir_tel`
-  ADD CONSTRAINT `FKtelephone_dep` FOREIGN KEY (`FK_departement`) REFERENCES `departement` (`id_departement`),
-  ADD CONSTRAINT `FKtelephone_dep_tel` FOREIGN KEY (`FK_telephone`) REFERENCES `telephone` (`id_telephone`);
+ALTER TABLE `t_dep_avoir_tel`
+  ADD CONSTRAINT `FKtelephone_dep` FOREIGN KEY (`FK_departement`) REFERENCES `t_departement` (`id_departement`),
+  ADD CONSTRAINT `FKtelephone_dep_tel` FOREIGN KEY (`FK_telephone`) REFERENCES `t_telephone` (`id_telephone`);
 
 --
--- Contraintes pour la table `dep_se_trouver_adresse`
+-- Contraintes pour la table `t_dep_se_trouver_adresse`
 --
-ALTER TABLE `dep_se_trouver_adresse`
-  ADD CONSTRAINT `FKadresse_dep` FOREIGN KEY (`FK_departement`) REFERENCES `departement` (`id_departement`),
-  ADD CONSTRAINT `FKadresse_dep_adresse` FOREIGN KEY (`FK_adresse`) REFERENCES `adresse` (`id_adresse`);
+ALTER TABLE `t_dep_se_trouver_adresse`
+  ADD CONSTRAINT `FKadresse_dep` FOREIGN KEY (`FK_departement`) REFERENCES `t_departement` (`id_departement`),
+  ADD CONSTRAINT `FKadresse_dep_adresse` FOREIGN KEY (`FK_adresse`) REFERENCES `t_adresse` (`id_adresse`);
 
 --
--- Contraintes pour la table `pers_attribuer_dem`
+-- Contraintes pour la table `t_pers_attribuer_dem`
 --
-ALTER TABLE `pers_attribuer_dem`
-  ADD CONSTRAINT `FKdem_attr` FOREIGN KEY (`FK_demande`) REFERENCES `demande` (`id_demande`),
-  ADD CONSTRAINT `FKpersonne_attr_dem` FOREIGN KEY (`FK_personne`) REFERENCES `personne` (`id_personne`);
+ALTER TABLE `t_pers_attribuer_dem`
+  ADD CONSTRAINT `FKdem_attr` FOREIGN KEY (`FK_demande`) REFERENCES `t_demande` (`id_demande`),
+  ADD CONSTRAINT `FKpersonne_attr_dem` FOREIGN KEY (`FK_personne`) REFERENCES `t_personne` (`id_personne`);
 
 --
--- Contraintes pour la table `pers_attribuer_inc`
+-- Contraintes pour la table `t_pers_attribuer_inc`
 --
-ALTER TABLE `pers_attribuer_inc`
-  ADD CONSTRAINT `FKinc_attr_inc` FOREIGN KEY (`Fk_incident`) REFERENCES `incident` (`id_incident`),
-  ADD CONSTRAINT `FKinc_attr_pers` FOREIGN KEY (`FK_personne`) REFERENCES `personne` (`id_personne`);
+ALTER TABLE `t_pers_attribuer_inc`
+  ADD CONSTRAINT `FKinc_attr_inc` FOREIGN KEY (`Fk_incident`) REFERENCES `t_incident` (`id_incident`),
+  ADD CONSTRAINT `FKinc_attr_pers` FOREIGN KEY (`FK_personne`) REFERENCES `t_personne` (`id_personne`);
 
 --
--- Contraintes pour la table `pers_auteur_dem`
+-- Contraintes pour la table `t_pers_auteur_dem`
 --
-ALTER TABLE `pers_auteur_dem`
-  ADD CONSTRAINT `FKdem_auteur` FOREIGN KEY (`FK_demande`) REFERENCES `demande` (`id_demande`),
-  ADD CONSTRAINT `FKdem_auteur_pers` FOREIGN KEY (`FK_personne`) REFERENCES `personne` (`id_personne`);
+ALTER TABLE `t_pers_auteur_dem`
+  ADD CONSTRAINT `FKdem_auteur` FOREIGN KEY (`FK_demande`) REFERENCES `t_demande` (`id_demande`),
+  ADD CONSTRAINT `FKdem_auteur_pers` FOREIGN KEY (`FK_personne`) REFERENCES `t_personne` (`id_personne`);
 
 --
--- Contraintes pour la table `pers_auteur_inc`
+-- Contraintes pour la table `t_pers_auteur_inc`
 --
-ALTER TABLE `pers_auteur_inc`
-  ADD CONSTRAINT `FKinc_auteur_inc` FOREIGN KEY (`FK_incident`) REFERENCES `incident` (`id_incident`),
-  ADD CONSTRAINT `FKinc_auteur_pers` FOREIGN KEY (`FK_personne`) REFERENCES `personne` (`id_personne`);
+ALTER TABLE `t_pers_auteur_inc`
+  ADD CONSTRAINT `FKinc_auteur_inc` FOREIGN KEY (`FK_incident`) REFERENCES `t_incident` (`id_incident`),
+  ADD CONSTRAINT `FKinc_auteur_pers` FOREIGN KEY (`FK_personne`) REFERENCES `t_personne` (`id_personne`);
 
 --
--- Contraintes pour la table `pers_avoir_mail`
+-- Contraintes pour la table `t_pers_avoir_mail`
 --
-ALTER TABLE `pers_avoir_mail`
-  ADD CONSTRAINT `FKmail_pers` FOREIGN KEY (`FK_personne`) REFERENCES `personne` (`id_personne`),
-  ADD CONSTRAINT `FKmail_pers_mail` FOREIGN KEY (`FK_mail`) REFERENCES `mail` (`id_mail`);
+ALTER TABLE `t_pers_avoir_mail`
+  ADD CONSTRAINT `FKmail_pers` FOREIGN KEY (`FK_personne`) REFERENCES `t_personne` (`id_personne`),
+  ADD CONSTRAINT `FKmail_pers_mail` FOREIGN KEY (`FK_mail`) REFERENCES `t_mail` (`id_mail`);
 
 --
--- Contraintes pour la table `pers_avoir_tel`
+-- Contraintes pour la table `t_pers_avoir_tel`
 --
-ALTER TABLE `pers_avoir_tel`
-  ADD CONSTRAINT `FKtelephone_pers` FOREIGN KEY (`FK_telephone`) REFERENCES `telephone` (`id_telephone`),
-  ADD CONSTRAINT `FKtelephone_pers_pers` FOREIGN KEY (`FK_personne`) REFERENCES `personne` (`id_personne`);
+ALTER TABLE `t_pers_avoir_tel`
+  ADD CONSTRAINT `FKtelephone_pers` FOREIGN KEY (`FK_telephone`) REFERENCES `t_telephone` (`id_telephone`),
+  ADD CONSTRAINT `FKtelephone_pers_pers` FOREIGN KEY (`FK_personne`) REFERENCES `t_personne` (`id_personne`);
 
 --
--- Contraintes pour la table `pers_categorie`
+-- Contraintes pour la table `t_pers_categorie`
 --
-ALTER TABLE `pers_categorie`
-  ADD CONSTRAINT `FKcategorie` FOREIGN KEY (`FK_categorie`) REFERENCES `categorie` (`id_categorie`),
-  ADD CONSTRAINT `FKpersonne` FOREIGN KEY (`FK_personne`) REFERENCES `personne` (`id_personne`);
+ALTER TABLE `t_pers_categorie`
+  ADD CONSTRAINT `FKcategorie` FOREIGN KEY (`FK_categorie`) REFERENCES `t_categorie` (`id_categorie`),
+  ADD CONSTRAINT `FKpersonne` FOREIGN KEY (`FK_personne`) REFERENCES `t_personne` (`id_personne`);
 
 --
--- Contraintes pour la table `pers_se_trouver_adresse`
+-- Contraintes pour la table `t_pers_se_trouver_adresse`
 --
-ALTER TABLE `pers_se_trouver_adresse`
-  ADD CONSTRAINT `FKadresse_adresse` FOREIGN KEY (`FK_adresse`) REFERENCES `adresse` (`id_adresse`),
-  ADD CONSTRAINT `FKpersonne_adresse` FOREIGN KEY (`FK_personne`) REFERENCES `personne` (`id_personne`);
+ALTER TABLE `t_pers_se_trouver_adresse`
+  ADD CONSTRAINT `FKadresse_adresse` FOREIGN KEY (`FK_adresse`) REFERENCES `t_adresse` (`id_adresse`),
+  ADD CONSTRAINT `FKpersonne_adresse` FOREIGN KEY (`FK_personne`) REFERENCES `t_personne` (`id_personne`);
 
 --
--- Contraintes pour la table `pers_travailler_dep`
+-- Contraintes pour la table `t_pers_travailler_dep`
 --
-ALTER TABLE `pers_travailler_dep`
-  ADD CONSTRAINT `FKpers_travailler_dep` FOREIGN KEY (`FK_departement`) REFERENCES `departement` (`id_departement`),
-  ADD CONSTRAINT `FKpers_travailler_dep_pers` FOREIGN KEY (`FK_personne`) REFERENCES `personne` (`id_personne`);
+ALTER TABLE `t_pers_travailler_dep`
+  ADD CONSTRAINT `FKpers_travailler_dep` FOREIGN KEY (`FK_departement`) REFERENCES `t_departement` (`id_departement`),
+  ADD CONSTRAINT `FKpers_travailler_dep_pers` FOREIGN KEY (`FK_personne`) REFERENCES `t_personne` (`id_personne`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
