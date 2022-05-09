@@ -160,11 +160,11 @@ def genre_update_wtf():
             # Puis la convertir en lettres minuscules.
             name_genre_update = form_update.nom_genre_update_wtf.data
             name_genre_update = name_genre_update.lower()
-            date_genre_essai = form_update.date_genre_wtf_essai.data
+
 
             valeur_update_dictionnaire = {"value_id_categorie": id_genre_update,
                                           "value_name_categorie": name_genre_update,
-                                          "value_date_genre_essai": date_genre_essai
+
                                           }
             print("valeur_update_dictionnaire ", valeur_update_dictionnaire)
 
@@ -193,7 +193,7 @@ def genre_update_wtf():
 
             # Afficher la valeur sélectionnée dans les champs du formulaire "genre_update_wtf.html"
             form_update.nom_genre_update_wtf.data = data_nom_genre["nom_categorie"]
-            form_update.date_genre_wtf_essai.data = data_nom_genre["date_ins_genre"]
+
 
     except Exception as Exception_genre_update_wtf:
         raise ExceptionGenreUpdateWtf(f"fichier : {Path(__file__).name}  ;  "
