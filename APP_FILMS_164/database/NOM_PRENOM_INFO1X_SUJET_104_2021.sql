@@ -11,13 +11,12 @@ CREATE DATABASE IF NOT EXISTS Lopardo_Mattia_INFO1C_164_BD;
 
 USE Lopardo_Mattia_INFO1C_164_BD;
 
-
 -- phpMyAdmin SQL Dump
 -- version 4.5.4.1
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 09 Mai 2022 à 06:40
+-- Généré le :  Lun 09 Mai 2022 à 13:05
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -77,16 +76,17 @@ INSERT INTO `t_adresse` (`id_adresse`, `adresse`, `NPA`, `ville`) VALUES
 --
 
 CREATE TABLE `t_categorie` (
-  `id_categorie` varchar(40) NOT NULL
+  `id_categorie` int(11) NOT NULL,
+  `nom_categorie` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `t_categorie`
 --
 
-INSERT INTO `t_categorie` (`id_categorie`) VALUES
-('bénéficiaire'),
-('technicien');
+INSERT INTO `t_categorie` (`id_categorie`, `nom_categorie`) VALUES
+(1, 'Bénéficiaire'),
+(2, 'Technicien');
 
 -- --------------------------------------------------------
 
@@ -452,7 +452,7 @@ INSERT INTO `t_pers_avoir_tel` (`id_pers_avoir_tel`, `FK_personne`, `FK_telephon
 CREATE TABLE `t_pers_categorie` (
   `id_pers_categorie` int(11) NOT NULL,
   `FK_personne` int(11) NOT NULL,
-  `FK_categorie` varchar(40) NOT NULL
+  `FK_categorie` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -460,16 +460,16 @@ CREATE TABLE `t_pers_categorie` (
 --
 
 INSERT INTO `t_pers_categorie` (`id_pers_categorie`, `FK_personne`, `FK_categorie`) VALUES
-(1, 1, 'bénéficiaire'),
-(2, 2, 'bénéficiaire'),
-(3, 3, 'bénéficiaire'),
-(4, 4, 'bénéficiaire'),
-(5, 5, 'technicien'),
-(6, 6, 'technicien'),
-(7, 7, 'technicien'),
-(8, 8, 'technicien'),
-(9, 9, 'technicien'),
-(10, 10, 'technicien');
+(1, 1, 1),
+(2, 2, 1),
+(3, 3, 1),
+(4, 4, 1),
+(5, 5, 2),
+(6, 6, 2),
+(7, 7, 2),
+(8, 8, 2),
+(9, 9, 2),
+(10, 10, 2);
 
 -- --------------------------------------------------------
 
@@ -712,6 +712,50 @@ ALTER TABLE `t_telephone`
   ADD PRIMARY KEY (`id_telephone`);
 
 --
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `t_adresse`
+--
+ALTER TABLE `t_adresse`
+  MODIFY `id_adresse` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT pour la table `t_categorie`
+--
+ALTER TABLE `t_categorie`
+  MODIFY `id_categorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `t_demande`
+--
+ALTER TABLE `t_demande`
+  MODIFY `id_demande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT pour la table `t_departement`
+--
+ALTER TABLE `t_departement`
+  MODIFY `id_departement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT pour la table `t_incident`
+--
+ALTER TABLE `t_incident`
+  MODIFY `id_incident` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `t_mail`
+--
+ALTER TABLE `t_mail`
+  MODIFY `id_mail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT pour la table `t_personne`
+--
+ALTER TABLE `t_personne`
+  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT pour la table `t_telephone`
+--
+ALTER TABLE `t_telephone`
+  MODIFY `id_telephone` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
 -- Contraintes pour les tables exportées
 --
 
@@ -782,8 +826,8 @@ ALTER TABLE `t_pers_avoir_tel`
 -- Contraintes pour la table `t_pers_categorie`
 --
 ALTER TABLE `t_pers_categorie`
-  ADD CONSTRAINT `FKcategorie` FOREIGN KEY (`FK_categorie`) REFERENCES `t_categorie` (`id_categorie`),
-  ADD CONSTRAINT `FKpersonne` FOREIGN KEY (`FK_personne`) REFERENCES `t_personne` (`id_personne`);
+  ADD CONSTRAINT `FK_categorie` FOREIGN KEY (`FK_categorie`) REFERENCES `t_categorie` (`id_categorie`),
+  ADD CONSTRAINT `FK_personne` FOREIGN KEY (`FK_personne`) REFERENCES `t_personne` (`id_personne`);
 
 --
 -- Contraintes pour la table `t_pers_se_trouver_adresse`
@@ -802,5 +846,9 @@ ALTER TABLE `t_pers_travailler_dep`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+
 
 

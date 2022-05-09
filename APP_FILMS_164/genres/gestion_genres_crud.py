@@ -43,11 +43,11 @@ def genres_afficher(order_by, id_genre_sel):
                     # donc, je précise les champs à afficher
                     # Constitution d'un dictionnaire pour associer l'id du genre sélectionné avec un nom de variable
                     valeur_id_genre_selected_dictionnaire = {"value_id_categorie_selected": id_genre_sel}
-                    strsql_genres_afficher = """SELECT id_categorie FROM t_categorie WHERE id_categorie = %(value_id_categorie_selected)s"""
+                    strsql_genres_afficher = """SELECT id_categorie, nom_categorie FROM t_categorie WHERE id_categorie = %(value_id_categorie_selected)s"""
 
                     mc_afficher.execute(strsql_genres_afficher, valeur_id_genre_selected_dictionnaire)
                 else:
-                    strsql_genres_afficher = """SELECT id_categorie FROM t_categorie ORDER BY id_categorie DESC"""
+                    strsql_genres_afficher = """SELECT id_categorie, nom_categorie FROM t_categorie ORDER BY id_categorie DESC"""
 
                     mc_afficher.execute(strsql_genres_afficher)
 
@@ -102,12 +102,11 @@ def genres_ajouter_wtf():
         try:
             if form.validate_on_submit():
                 name_genre_wtf = form.nom_genre_wtf.data
-
                 name_genre = name_genre_wtf.lower()
-                valeurs_insertion_dictionnaire = {"value_intitule_genre": name_genre}
+                valeurs_insertion_dictionnaire = {"value_nom_categorie": name_genre}
                 print("valeurs_insertion_dictionnaire ", valeurs_insertion_dictionnaire)
 
-                strsql_insert_genre = """INSERT INTO t_categorie (id_categorie) VALUES (value_intitule_categorie)s """
+                strsql_insert_genre = """INSERT INTO t_categorie (id_categorie,nom_categorie) VALUES (NULL,%(value_nom_categorie)s) """
                 with DBconnection() as mconn_bd:
                     mconn_bd.execute(strsql_insert_genre, valeurs_insertion_dictionnaire)
 
@@ -115,7 +114,7 @@ def genres_ajouter_wtf():
                 print(f"Données insérées !!")
 
                 # Pour afficher et constater l'insertion de la valeur, on affiche en ordre inverse. (DESC)
-                return redirect(url_for('categorie_afficher', order_by='DESC', id_genre_sel=0))
+                return redirect(url_for('genres_afficher', order_by='DESC', id_genre_sel=0))
 
         except Exception as Exception_genres_ajouter_wtf:
             raise ExceptionGenresAjouterWtf(f"fichier : {Path(__file__).name}  ;  "
@@ -161,12 +160,12 @@ def genre_update_wtf():
             date_genre_essai = form_update.date_genre_wtf_essai.data
 
             valeur_update_dictionnaire = {"value_id_categorie": id_genre_update,
-                                          "value_name_genre": name_genre_update,
+                                          "value_name_categorie": name_genre_update,
                                           "value_date_genre_essai": date_genre_essai
                                           }
             print("valeur_update_dictionnaire ", valeur_update_dictionnaire)
 
-            str_sql_update_intitulegenre = """SELECT id_categorie FROM t_categorie WHERE id_categorie = %(value_id_categorie)s"""
+            str_sql_update_intitulegenre = """UPDATE t_categorie SET nom_categorie = %(value_name_categorie)s WHERE id_genre = %(value_id_categorie)s """
             with DBconnection() as mconn_bd:
                 mconn_bd.execute(str_sql_update_intitulegenre, valeur_update_dictionnaire)
 
@@ -178,7 +177,7 @@ def genre_update_wtf():
             return redirect(url_for('genres_afficher', order_by="ASC", id_genre_sel=id_genre_update))
         elif request.method == "GET":
             # Opération sur la BD pour récupérer "id_genre" et "intitule_genre" de la "t_genre"
-            str_sql_id_genre = "SELECT id_categorie FROM t_categorie " \
+            str_sql_id_genre = "SELECT id_categorie, nom_categorie FROM t_categorie " \
                                "WHERE id_categorie = %(value_id_categorie)s"
             valeur_select_dictionnaire = {"value_id_categorie": id_genre_update}
             with DBconnection() as mybd_conn:
@@ -186,10 +185,10 @@ def genre_update_wtf():
             # Une seule valeur est suffisante "fetchone()", vu qu'il n'y a qu'un seul champ "nom genre" pour l'UPDATE
             data_nom_genre = mybd_conn.fetchone()
             print("data_nom_genre ", data_nom_genre, " type ", type(data_nom_genre), " genre ",
-                  data_nom_genre["intitule_categorie"])
+                  data_nom_genre["nom_categorie"])
 
             # Afficher la valeur sélectionnée dans les champs du formulaire "genre_update_wtf.html"
-            form_update.nom_genre_update_wtf.data = data_nom_genre["intitule_categorie"]
+            form_update.nom_genre_update_wtf.data = data_nom_genre["nom_categorie"]
             form_update.date_genre_wtf_essai.data = data_nom_genre["date_ins_genre"]
 
     except Exception as Exception_genre_update_wtf:
