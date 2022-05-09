@@ -107,7 +107,7 @@ def genres_ajouter_wtf():
                 valeurs_insertion_dictionnaire = {"value_intitule_genre": name_genre}
                 print("valeurs_insertion_dictionnaire ", valeurs_insertion_dictionnaire)
 
-                strsql_insert_genre = """INSERT INTO t_categorie (id_genre) VALUES (value_intitule_categorie)s """
+                strsql_insert_genre = """INSERT INTO t_categorie (id_categorie) VALUES (value_intitule_categorie)s """
                 with DBconnection() as mconn_bd:
                     mconn_bd.execute(strsql_insert_genre, valeurs_insertion_dictionnaire)
 
@@ -144,7 +144,6 @@ def genres_ajouter_wtf():
                 Accepte le trait d'union ou l'apostrophe, et l'espace entre deux mots, mais pas plus d'une occurence.
 """
 
-
 @app.route("/genre_update", methods=['GET', 'POST'])
 def genre_update_wtf():
     # L'utilisateur vient de cliquer sur le bouton "EDIT". Récupère la valeur de "id_genre"
@@ -159,11 +158,15 @@ def genre_update_wtf():
             # Puis la convertir en lettres minuscules.
             name_genre_update = form_update.nom_genre_update_wtf.data
             name_genre_update = name_genre_update.lower()
+            date_genre_essai = form_update.date_genre_wtf_essai.data
 
-            valeur_update_dictionnaire = {"value_id_genre": id_genre_update, "value_name_genre": name_genre_update}
+            valeur_update_dictionnaire = {"value_id_categorie": id_genre_update,
+                                          "value_name_genre": name_genre_update,
+                                          "value_date_genre_essai": date_genre_essai
+                                          }
             print("valeur_update_dictionnaire ", valeur_update_dictionnaire)
 
-            str_sql_update_intitulegenre = """UPDATE t_genre SET intitule_genre = %(value_name_genre)s WHERE id_genre = %(value_id_genre)s"""
+            str_sql_update_intitulegenre = """SELECT id_categorie FROM t_categorie WHERE id_categorie = %(value_id_categorie)s"""
             with DBconnection() as mconn_bd:
                 mconn_bd.execute(str_sql_update_intitulegenre, valeur_update_dictionnaire)
 
@@ -175,17 +178,19 @@ def genre_update_wtf():
             return redirect(url_for('genres_afficher', order_by="ASC", id_genre_sel=id_genre_update))
         elif request.method == "GET":
             # Opération sur la BD pour récupérer "id_genre" et "intitule_genre" de la "t_genre"
-            str_sql_id_genre = "SELECT id_categorie FROM t_categorie WHERE id_categorie = %(value_id_categorie)s"
-            valeur_select_dictionnaire = {"value_id_genre": id_genre_update}
+            str_sql_id_genre = "SELECT id_categorie FROM t_categorie " \
+                               "WHERE id_categorie = %(value_id_categorie)s"
+            valeur_select_dictionnaire = {"value_id_categorie": id_genre_update}
             with DBconnection() as mybd_conn:
                 mybd_conn.execute(str_sql_id_genre, valeur_select_dictionnaire)
             # Une seule valeur est suffisante "fetchone()", vu qu'il n'y a qu'un seul champ "nom genre" pour l'UPDATE
             data_nom_genre = mybd_conn.fetchone()
             print("data_nom_genre ", data_nom_genre, " type ", type(data_nom_genre), " genre ",
-                  data_nom_genre["intitule_genre"])
+                  data_nom_genre["intitule_categorie"])
 
-            # Afficher la valeur sélectionnée dans le champ du formulaire "genre_update_wtf.html"
-            form_update.nom_genre_update_wtf.data = data_nom_genre["intitule_genre"]
+            # Afficher la valeur sélectionnée dans les champs du formulaire "genre_update_wtf.html"
+            form_update.nom_genre_update_wtf.data = data_nom_genre["intitule_categorie"]
+            form_update.date_genre_wtf_essai.data = data_nom_genre["date_ins_genre"]
 
     except Exception as Exception_genre_update_wtf:
         raise ExceptionGenreUpdateWtf(f"fichier : {Path(__file__).name}  ;  "
@@ -215,7 +220,7 @@ def genre_delete_wtf():
     data_films_attribue_genre_delete = None
     btn_submit_del = None
     # L'utilisateur vient de cliquer sur le bouton "DELETE". Récupère la valeur de "id_genre"
-    id_genre_delete = request.values['id_genre_btn_delete_html']
+    id_genre_delete = request.values['id_categorie_btn_delete_html']
 
     # Objet formulaire pour effacer le genre sélectionné.
     form_delete = FormWTFDeleteGenre()
