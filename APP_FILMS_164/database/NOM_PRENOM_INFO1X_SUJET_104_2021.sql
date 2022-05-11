@@ -1,10 +1,3 @@
--- OM 2021.02.17
--- FICHIER MYSQL POUR FAIRE FONCTIONNER LES EXEMPLES
--- DE REQUETES MYSQL
--- Database: zzz_xxxxx_NOM_PRENOM_INFO1X_SUJET_104_2021
-
--- Détection si une autre base de donnée du même nom existe
-
 DROP DATABASE IF EXISTS Lopardo_Mattia_INFO1C_164_BD;
 
 CREATE DATABASE IF NOT EXISTS Lopardo_Mattia_INFO1C_164_BD;
@@ -16,7 +9,7 @@ USE Lopardo_Mattia_INFO1C_164_BD;
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 09 Mai 2022 à 13:05
+-- Généré le :  Mer 11 Mai 2022 à 11:52
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -724,7 +717,7 @@ ALTER TABLE `t_adresse`
 -- AUTO_INCREMENT pour la table `t_categorie`
 --
 ALTER TABLE `t_categorie`
-  MODIFY `id_categorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_categorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `t_demande`
 --
@@ -736,10 +729,25 @@ ALTER TABLE `t_demande`
 ALTER TABLE `t_departement`
   MODIFY `id_departement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
+-- AUTO_INCREMENT pour la table `t_dep_avoir_mail`
+--
+ALTER TABLE `t_dep_avoir_mail`
+  MODIFY `id_dep_avoir_mail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT pour la table `t_dep_avoir_tel`
+--
+ALTER TABLE `t_dep_avoir_tel`
+  MODIFY `id_dep_avoir_tel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT pour la table `t_dep_se_trouver_adresse`
+--
+ALTER TABLE `t_dep_se_trouver_adresse`
+  MODIFY `id_dep_se_trouver_adresse` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
 -- AUTO_INCREMENT pour la table `t_incident`
 --
 ALTER TABLE `t_incident`
-  MODIFY `id_incident` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_incident` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `t_mail`
 --
@@ -750,6 +758,46 @@ ALTER TABLE `t_mail`
 --
 ALTER TABLE `t_personne`
   MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT pour la table `t_pers_attribuer_dem`
+--
+ALTER TABLE `t_pers_attribuer_dem`
+  MODIFY `id_pers_attribuer_dem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT pour la table `t_pers_attribuer_inc`
+--
+ALTER TABLE `t_pers_attribuer_inc`
+  MODIFY `id_pers_attribuer_inc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT pour la table `t_pers_auteur_dem`
+--
+ALTER TABLE `t_pers_auteur_dem`
+  MODIFY `id_pers_auteur_dem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT pour la table `t_pers_auteur_inc`
+--
+ALTER TABLE `t_pers_auteur_inc`
+  MODIFY `id_pers_auteur_inc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT pour la table `t_pers_avoir_mail`
+--
+ALTER TABLE `t_pers_avoir_mail`
+  MODIFY `id_pers_avoir_mail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT pour la table `t_pers_avoir_tel`
+--
+ALTER TABLE `t_pers_avoir_tel`
+  MODIFY `id_pers_avoir_tel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT pour la table `t_pers_se_trouver_adresse`
+--
+ALTER TABLE `t_pers_se_trouver_adresse`
+  MODIFY `id_pers_se_trouver_adresse` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT pour la table `t_pers_travailler_dep`
+--
+ALTER TABLE `t_pers_travailler_dep`
+  MODIFY `id_pers_travailler_dep` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `t_telephone`
 --
@@ -846,9 +894,4 @@ ALTER TABLE `t_pers_travailler_dep`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
-
-
-
 

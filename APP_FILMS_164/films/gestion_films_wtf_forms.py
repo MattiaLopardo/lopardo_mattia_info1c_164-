@@ -16,14 +16,14 @@ class FormWTFAddFilm(FlaskForm):
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
     nom_film_regexp = ""
-    nom_film_add_wtf = StringField("Nom du film ", validators=[Length(min=2, max=2000, message="min 2 max 20"),
+    nom_film_add_wtf = StringField("Nom de la personne ", validators=[Length(min=2, max=2000, message="min 2 max 20"),
                                                                Regexp(nom_film_regexp,
                                                                       message="Pas de chiffres, de caractères "
                                                                               "spéciaux, "
                                                                               "d'espace à double, de double "
                                                                               "apostrophe, de double trait union")
                                                                ])
-    submit = SubmitField("Enregistrer film")
+    submit = SubmitField("Enregistrer la personne")
 
 
 class FormWTFUpdateFilm(FlaskForm):
@@ -32,10 +32,10 @@ class FormWTFUpdateFilm(FlaskForm):
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
     nom_film_update_regexp = ""
-    nom_film_update_wtf = StringField("Clavioter le titre")
-    duree_film_update_regexp = ""
+    nom_film_update_wtf = StringField("Clavioter le nom")
+    duree_film_update_regexp = StringField("Clavioter le prenom")
     duree_film_update_wtf = StringField("Durée du film (minutes)")
-    description_film_update_wtf = StringField("Description du film ")
+    description_film_update_wtf = StringField("Clavioter la date de naissance")
     datesortie_film_update_wtf = StringField("Date de sortie du film ")
 
     submit = SubmitField("Update film")
