@@ -9,7 +9,7 @@ USE Lopardo_Mattia_INFO1C_164_BD;
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 11 Mai 2022 à 11:52
+-- Généré le :  Lun 16 Mai 2022 à 14:37
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -288,7 +288,8 @@ INSERT INTO `t_personne` (`id_personne`, `nom_personne`, `prenom_personne`, `dat
 (7, 'James', 'Karl', '2001-03-29'),
 (8, 'Morales', 'Miles', '2001-06-20'),
 (9, 'Petterson', 'kild', '2002-07-23'),
-(10, 'Dwaney', 'Davide', '1985-04-27');
+(10, 'Dwaney', 'Davide', '1985-04-27'),
+(11, 'TEST ALBERT', 'Ponochon', '2022-05-11');
 
 -- --------------------------------------------------------
 
@@ -757,7 +758,7 @@ ALTER TABLE `t_mail`
 -- AUTO_INCREMENT pour la table `t_personne`
 --
 ALTER TABLE `t_personne`
-  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT pour la table `t_pers_attribuer_dem`
 --
@@ -788,6 +789,11 @@ ALTER TABLE `t_pers_avoir_mail`
 --
 ALTER TABLE `t_pers_avoir_tel`
   MODIFY `id_pers_avoir_tel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT pour la table `t_pers_categorie`
+--
+ALTER TABLE `t_pers_categorie`
+  MODIFY `id_pers_categorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `t_pers_se_trouver_adresse`
 --
@@ -894,4 +900,3 @@ ALTER TABLE `t_pers_travailler_dep`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-

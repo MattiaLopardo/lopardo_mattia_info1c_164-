@@ -99,8 +99,9 @@ def film_update_wtf():
             print("valeur_update_dictionnaire ", valeur_update_dictionnaire)
 
             str_sql_update_nom_film = """UPDATE t_personne SET nom_personne = %(value_nom_personne)s,
-                                                            prenom_personne = %(value_prenom_personne)s
-                                                            WHERE date_naiss_personne = %(value_date_naiss_personne)s
+                                                            prenom_personne = %(value_prenom_personne)s,
+                                                            date_naiss_personne = %(value_date_naiss_personne)s
+                                                            WHERE id_personne = %(value_id_personne)s
                                                             """
             with DBconnection() as mconn_bd:
                 mconn_bd.execute(str_sql_update_nom_film, valeur_update_dictionnaire)
@@ -124,9 +125,9 @@ def film_update_wtf():
 
             # Afficher la valeur sélectionnée dans le champ du formulaire "film_update_wtf.html"
             form_update_film.nom_film_update_wtf.data = data_film["nom_personne"]
-            print(f" dta film  ", data_film["nom_personne"])
+            print(f" dta personne  ", data_film["nom_personne"])
             form_update_film.duree_film_update_wtf.data = data_film["prenom_personne"]
-            print(f" duree film  ", data_film["prenom_personne"], "  type ", type(data_film["prenom_personne"]))
+            print(f" date de naiss personne  ", data_film["prenom_personne"], "  type ", type(data_film["prenom_personne"]))
 
 
     except Exception as Exception_film_update_wtf:
