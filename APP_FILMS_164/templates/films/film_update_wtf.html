@@ -26,13 +26,6 @@
 						{% endfor %}
 					</p>
 					<p>
-						{{ form_update_film.description_film_update_wtf.label }}<br>
-						{{ form_update_film.description_film_update_wtf(size=1232) }}<br>
-						{% for error in form_update_film.description_film_update_wtf.errors %}
-						<span style="color: red;">[{{ error }}]</span>
-						{% endfor %}
-					</p>
-					<p>
 						{{ form_update_film.datesortie_film_update_wtf.label }}<br>
 						{{ form_update_film.datesortie_film_update_wtf(size=1232) }}<br>
 						{% for error in form_update_film.datesortie_film_update_wtf.errors %}

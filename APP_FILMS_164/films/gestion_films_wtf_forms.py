@@ -32,13 +32,12 @@ class FormWTFUpdateFilm(FlaskForm):
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
     nom_film_update_regexp = ""
-    nom_film_update_wtf = StringField("Clavioter le nom")
+    nom_film_update_wtf = StringField("Entrer le nom")
     duree_film_update_regexp = StringField("Clavioter le prenom")
-    duree_film_update_wtf = StringField("Durée du film (minutes)")
-    description_film_update_wtf = StringField("Clavioter la date de naissance")
-    datesortie_film_update_wtf = StringField("Date de sortie du film ")
+    duree_film_update_wtf = StringField("Entrer le prenom")
+    datesortie_film_update_wtf = StringField("Date de naissance ")
 
-    submit = SubmitField("Update film")
+    submit = SubmitField("Update Personne")
 
 
 class FormWTFDeleteFilm(FlaskForm):
@@ -50,7 +49,7 @@ class FormWTFDeleteFilm(FlaskForm):
         submit_btn_conf_del : Bouton de confirmation pour effacer un "film".
         submit_btn_annuler : Bouton qui permet d'afficher la table "t_film".
     """
-    nom_film_delete_wtf = StringField("Effacer ce film")
-    submit_btn_del_film = SubmitField("Effacer film")
+    nom_film_delete_wtf = StringField("Effacer cette personne")
+    submit_btn_del_film = SubmitField("Effacer personne")
     submit_btn_conf_del_film = SubmitField("Etes-vous sur d'effacer ?")
     submit_btn_annuler = SubmitField("Annuler")
