@@ -4,10 +4,11 @@ Auteur : OM 2022.04.11
 
 """
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField
+from wtforms import StringField, IntegerField, DateField
 from wtforms import SubmitField
-from wtforms.validators import Length, InputRequired
+from wtforms.validators import Length, InputRequired, NumberRange, DataRequired
 from wtforms.validators import Regexp
+from wtforms.widgets import TextArea
 
 
 class FormWTFAddFilm(FlaskForm):
@@ -16,14 +17,15 @@ class FormWTFAddFilm(FlaskForm):
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
     nom_film_regexp = ""
-    nom_film_add_wtf = StringField("Nom de la personne ", validators=[Length(min=2, max=2000, message="min 2 max 20"),
+    nom_film_add_wtf = StringField("Nom de la Personne ", validators=[Length(min=2, max=2000, message="min 2 max 20"),
                                                                Regexp(nom_film_regexp,
                                                                       message="Pas de chiffres, de caractères "
                                                                               "spéciaux, "
                                                                               "d'espace à double, de double "
                                                                               "apostrophe, de double trait union")
                                                                ])
-    submit = SubmitField("Enregistrer la personne")
+
+    submit = SubmitField("Enregistrer la Personne")
 
 
 class FormWTFUpdateFilm(FlaskForm):
@@ -31,12 +33,11 @@ class FormWTFUpdateFilm(FlaskForm):
         Dans le formulaire "film_update_wtf.html" on impose que le champ soit rempli.
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
-    nom_film_update_regexp = ""
-    nom_film_update_wtf = StringField("Entrer le nom")
-    duree_film_update_regexp = StringField("Clavioter le prenom")
-    duree_film_update_wtf = StringField("Entrer le prenom")
-    datesortie_film_update_wtf = StringField("Date de naissance ")
 
+    nom_film_update_wtf = StringField("Clavioter le nom", widget=TextArea())
+    duree_film_update_wtf = StringField("Clavioter le prenom", widget=TextArea())
+    datesortie_film_update_wtf = DateField("Date de naissance", validators=[InputRequired("Date obligatoire"),
+                                                                                 DataRequired("Date non valide")])
     submit = SubmitField("Update Personne")
 
 

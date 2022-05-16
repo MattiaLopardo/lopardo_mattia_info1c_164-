@@ -88,21 +88,19 @@ def film_update_wtf():
             # Récupèrer la valeur du champ depuis "genre_update_wtf.html" après avoir cliqué sur "SUBMIT".
             nom_film_update = form_update_film.nom_film_update_wtf.data
             duree_film_update = form_update_film.duree_film_update_wtf.data
-            description_film_update = form_update_film.description_film_update_wtf.data
             datesortie_film_update = form_update_film.datesortie_film_update_wtf.data
 
             valeur_update_dictionnaire = {"value_id_personne": id_film_update,
                                           "value_nom_personne": nom_film_update,
                                           "value_prenom_personne": duree_film_update,
-                                          "value_date_naiss_personne": description_film_update,
-                                          "value_datesortie_film": datesortie_film_update
+
+                                          "value_date_naiss_personne": datesortie_film_update
                                           }
             print("valeur_update_dictionnaire ", valeur_update_dictionnaire)
 
             str_sql_update_nom_film = """UPDATE t_personne SET nom_personne = %(value_nom_personne)s,
-                                                            prenom_personne = %(value_prenom_personne)s,
-                                                            date_naiss_personne = %(value_date_naiss_personne)s
-                                                            WHERE date_sortie_film = %(value_datesortie_film)s
+                                                            prenom_personne = %(value_prenom_personne)s
+                                                            WHERE date_naiss_personne = %(value_date_naiss_personne)s
                                                             """
             with DBconnection() as mconn_bd:
                 mconn_bd.execute(str_sql_update_nom_film, valeur_update_dictionnaire)
