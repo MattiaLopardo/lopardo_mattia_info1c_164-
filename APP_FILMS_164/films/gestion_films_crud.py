@@ -219,7 +219,7 @@ def film_delete_wtf():
                                      f"{film_delete_wtf.__name__} ; "
                                      f"{Exception_film_delete_wtf}")
 
-        return render_template("films/film_delete_wtf.html",
+    return render_template("films/film_delete_wtf.html",
                            form_delete_film=form_delete_film,
                            btn_submit_del=btn_submit_del,
                            data_film_del=data_film_delete
