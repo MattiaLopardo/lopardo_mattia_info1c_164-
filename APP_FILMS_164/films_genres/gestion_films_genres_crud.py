@@ -52,7 +52,7 @@ def films_genres_afficher(id_film_sel):
 
                 # Récupère les données de la requête.
                 data_genres_films_afficher = mc_afficher.fetchall()
-                print("data_genres ", data_genres_films_afficher, " Type : ", type(data_genres_films_afficher))
+                print("data_categorie ", data_genres_films_afficher, " Type : ", type(data_genres_films_afficher))
 
                 # Différencier les messages.
                 if not data_genres_films_afficher and id_film_sel == 0:
@@ -93,8 +93,8 @@ def edit_genre_film_selected():
     if request.method == "GET":
         try:
             with DBconnection() as mc_afficher:
-                strsql_genres_afficher = """SELECT id_categorie, nom_categorie FROM t_categorie ORDER BY id_categorie ASC"""
-                mc_afficher.execute(strsql_genres_afficher)
+                strsql_categorie_afficher = """SELECT id_categorie, nom_categorie FROM t_categorie ORDER BY id_categorie ASC"""
+                mc_afficher.execute(strsql_categorie_afficher)
             data_genres_all = mc_afficher.fetchall()
             print("dans edit_genre_film_selected ---> data_genres_all", data_genres_all)
 
@@ -157,7 +157,7 @@ def edit_genre_film_selected():
                                                  f"{Exception_edit_genre_film_selected}")
 
     return render_template("films_genres/films_genres_modifier_tags_dropbox.html",
-                           data_genres=data_genres_all,
+                           data_categorie=data_genres_all,
                            data_film_selected=data_genre_film_selected,
                            data_genres_attribues=data_genres_films_attribues,
                            data_genres_non_attribues=data_genres_films_non_attribues)

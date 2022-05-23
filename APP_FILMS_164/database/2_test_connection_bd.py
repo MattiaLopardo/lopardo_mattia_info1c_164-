@@ -9,14 +9,14 @@ try:
     """
         Une seule requête pour montrer la récupération des données de la BD en MySql.
     """
-    strsql_genres_afficher = """SELECT * 
+    strsql_categorie_afficher = """SELECT * 
 FROM t_adresse adr
 WHERE adr.NPA >= 1000;"""
 
     with DBconnection() as db:
-        db.execute(strsql_genres_afficher)
+        db.execute(strsql_categorie_afficher)
         result = db.fetchall()
-        print("data_genres ", result, " Type : ", type(result))
+        print("data_categorie ", result, " Type : ", type(result))
 
 
 except Exception as erreur:

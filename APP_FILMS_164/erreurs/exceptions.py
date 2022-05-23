@@ -78,15 +78,15 @@ class ExceptionGenresAfficher(Base):
     pass
 
 
-class ExceptionGenreDeleteWtf(Base):
+class ExceptionCategorieDelete(Base):
     pass
 
 
-class ExceptionGenreUpdateWtf(Base):
+class ExceptionCategorieUpdate(Base):
     pass
 
 
-class ExceptionGenresAjouterWtf(Base):
+class strsql_insert_categorie(Base):
     pass
 
 

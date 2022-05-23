@@ -12,9 +12,9 @@
 				{{ form_update.hidden_tag() }}
 				<div class="form-group">
 					<p>
-						{{ form_update.nom_genre_update_wtf.label }}<br>
-						{{ form_update.nom_genre_update_wtf(size=32) }}<br>
-						{% for error in form_update.nom_genre_update_wtf.errors %}
+						{{ form_update.nom_categorie_update_1.label }}<br>
+						{{ form_update.nom_categorie_update_1(size=32) }}<br>
+						{% for error in form_update.nom_categorie_update_1.errors %}
 							<span style="color: red;">[{{ error }}]</span>
 						{% endfor %}
 					</p>

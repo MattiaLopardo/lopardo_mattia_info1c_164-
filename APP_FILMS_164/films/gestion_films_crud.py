@@ -51,10 +51,10 @@ def film_add_wtf():
                 # Pour afficher et constater l'insertion du nouveau film (id_film_sel=0 => afficher tous les films)
                 return redirect(url_for('films_genres_afficher', id_film_sel=0))
 
-        except Exception as Exception_genres_ajouter_wtf:
-            raise ExceptionGenresAjouterWtf(f"fichier : {Path(__file__).name}  ;  "
+        except Exception as Exception_categorie_ajouter_wtf:
+            raise strsql_insert_categorie(f"fichier : {Path(__file__).name}  ;  "
                                             f"{film_add_wtf.__name__} ; "
-                                            f"{Exception_genres_ajouter_wtf}")
+                                            f"{Exception_categorie_ajouter_wtf}")
 
     return render_template("films/film_add_wtf.html", form_add_film=form_add_film)
 
@@ -200,10 +200,10 @@ def film_delete_wtf():
             print(id_film_delete, type(id_film_delete))
 
             # Requête qui affiche le film qui doit être efffacé.
-            str_sql_genres_films_delete = """SELECT * FROM t_personne WHERE id_personne = %(value_id_personne)s"""
+            str_sql_categorie_personne_delete = """SELECT * FROM t_personne WHERE id_personne = %(value_id_personne)s"""
 
             with DBconnection() as mydb_conn:
-                mydb_conn.execute(str_sql_genres_films_delete, valeur_select_dictionnaire)
+                mydb_conn.execute( str_sql_categorie_personne_delete, valeur_select_dictionnaire)
                 data_film_delete = mydb_conn.fetchall()
                 print("data_film_delete...", data_film_delete)
 
@@ -219,8 +219,8 @@ def film_delete_wtf():
                                      f"{film_delete_wtf.__name__} ; "
                                      f"{Exception_film_delete_wtf}")
 
-    return render_template("films/film_delete_wtf.html",
+        return render_template("films/film_delete_wtf.html",
                            form_delete_film=form_delete_film,
                            btn_submit_del=btn_submit_del,
                            data_film_del=data_film_delete
-                           )
+                            )

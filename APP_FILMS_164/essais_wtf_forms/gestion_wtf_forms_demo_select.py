@@ -47,11 +47,11 @@ def demo_select_wtf():
 
         if request.method == "GET":
             with DBconnection() as mc_afficher:
-                strsql_genres_afficher = """SELECT id_genre, intitule_genre FROM t_genre ORDER BY id_genre ASC"""
-                mc_afficher.execute(strsql_genres_afficher)
+                strsql_categorie_afficher = """SELECT id_genre, intitule_genre FROM t_genre ORDER BY id_genre ASC"""
+                mc_afficher.execute(strsql_categorie_afficher)
 
-            data_genres = mc_afficher.fetchall()
-            print("demo_select_wtf data_genres ", data_genres, " Type : ", type(data_genres))
+            data_categorie = mc_afficher.fetchall()
+            print("demo_select_wtf data_categorie ", data_categorie, " Type : ", type(data_categorie))
 
             """
                 Préparer les valeurs pour la liste déroulante de l'objet "form_demo"
@@ -59,7 +59,7 @@ def demo_select_wtf():
                 le formulaire qui utilise la liste déroulante "zzz_essais_om_104/demo_form_select_wtf.html"
             """
             genre_val_list_dropdown = []
-            for i in data_genres:
+            for i in data_categorie:
                 genre_val_list_dropdown.append(i['intitule_genre'])
 
             # Aussi possible d'avoir un id numérique et un texte en correspondance
@@ -99,7 +99,7 @@ def demo_select_wtf():
     return render_template("zzz_essais_om_104/demo_form_select_wtf.html",
                            form=form_demo,
                            genre_selectionne=genre_selectionne,
-                           data_genres_drop_down=data_genres)
+                           data_genres_drop_down=data_categorie)
 
 
 @app.route("/demo_select_dropdown_bootstrap", methods=['GET', 'POST'])
