@@ -90,19 +90,19 @@ class strsql_insert_categorie(Base):
     pass
 
 
-class ExceptionFilmsGenresAfficher(Base):
+class ExceptionPersonnesCategoriesAfficher(Base):
     pass
 
 
-class ExceptionEditGenreFilmSelected(Base):
+class ExceptionEditCategoriePersonneSelected(Base):
     pass
 
 
-class ExceptionUpdateGenreFilmSelected(Base):
+class ExceptionUpdateCategoriePersonneSelected(Base):
     pass
 
 
-class ExceptionGenresFilmsAfficherData(Base):
+class ExceptionCategoriesPersonnesAfficherData(Base):
     pass
 
 
