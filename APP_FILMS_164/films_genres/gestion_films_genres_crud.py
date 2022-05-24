@@ -26,9 +26,9 @@ from APP_FILMS_164.erreurs.exceptions import *
 """
 
 
-@app.route("/films_genres_afficher/<int:id_film_sel>", methods=['GET', 'POST'])
-def films_genres_afficher(id_film_sel):
-    print(" films_genres_afficher id_film_sel ", id_film_sel)
+@app.route("/films_genres_afficher/<int:id_personne_sel>", methods=['GET', 'POST'])
+def films_genres_afficher(id_personne_sel):
+    print(" films_genres_afficher id_personne_sel ", id_personne_sel)
     if request.method == "GET":
         try:
             with DBconnection() as mc_afficher:
@@ -37,13 +37,13 @@ def films_genres_afficher(id_film_sel):
                                                             RIGHT JOIN t_personne ON t_personne.id_personne = t_pers_categorie.FK_personne
                                                             LEFT JOIN t_categorie ON t_categorie.id_categorie = t_pers_categorie.FK_categorie
                                                             GROUP BY id_personne"""
-                if id_film_sel == 0:
+                if id_personne_sel == 0:
                     # le paramètre 0 permet d'afficher tous les films
                     # Sinon le paramètre représente la valeur de l'id du film
                     mc_afficher.execute(strsql_genres_films_afficher_data)
                 else:
                     # Constitution d'un dictionnaire pour associer l'id du film sélectionné avec un nom de variable
-                    valeur_id_film_selected_dictionnaire = {"value_id_personne_selected": id_film_sel}
+                    valeur_id_film_selected_dictionnaire = {"value_id_personne_selected": id_personne_sel}
                     # En MySql l'instruction HAVING fonctionne comme un WHERE... mais doit être associée à un GROUP BY
                     # L'opérateur += permet de concaténer une nouvelle valeur à la valeur de gauche préalablement définie.
                     strsql_genres_films_afficher_data += """ HAVING id_personne= %(value_id_personne_selected)s"""
@@ -55,11 +55,11 @@ def films_genres_afficher(id_film_sel):
                 print("data_categorie ", data_genres_films_afficher, " Type : ", type(data_genres_films_afficher))
 
                 # Différencier les messages.
-                if not data_genres_films_afficher and id_film_sel == 0:
+                if not data_genres_films_afficher and id_personne_sel == 0:
                     flash("""La table "t_personne" est vide. !""", "warning")
-                elif not data_genres_films_afficher and id_film_sel > 0:
+                elif not data_genres_films_afficher and id_personne_sel > 0:
                     # Si l'utilisateur change l'id_film dans l'URL et qu'il ne correspond à aucun film
-                    flash(f"La personne {id_film_sel} demandé n'existe pas !!", "warning")
+                    flash(f"La personne {id_personne_sel} demandé n'existe pas !!", "warning")
                 else:
                     flash(f"Données personnes et categories affichées !!", "success")
 
@@ -259,7 +259,7 @@ def update_genre_film_selected():
 
     # Après cette mise à jour de la table intermédiaire "t_genre_film",
     # on affiche les films et le(urs) genre(s) associé(s).
-    return redirect(url_for('films_genres_afficher', id_film_sel=id_film_selected))
+    return redirect(url_for('films_genres_afficher', id_personne_sel=id_film_selected))
 
 
 """

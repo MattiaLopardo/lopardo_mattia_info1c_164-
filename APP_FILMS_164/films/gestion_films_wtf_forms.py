@@ -11,14 +11,14 @@ from wtforms.validators import Regexp
 from wtforms.widgets import TextArea
 
 
-class FormWTFAddFilm(FlaskForm):
+class FormAddPersonne(FlaskForm):
     """
         Dans le formulaire "genres_ajouter_wtf.html" on impose que le champ soit rempli.
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
-    nom_film_regexp = ""
-    nom_film_add_wtf = StringField("Nom de la Personne ", validators=[Length(min=2, max=2000, message="min 2 max 20"),
-                                                               Regexp(nom_film_regexp,
+    nom_personne_regexp = ""
+    nom_personne_add_1 = StringField("Nom de la Personne ", validators=[Length(min=2, max=2000, message="min 2 max 20"),
+                                                               Regexp(nom_personne_regexp,
                                                                       message="Pas de chiffres, de caractères "
                                                                               "spéciaux, "
                                                                               "d'espace à double, de double "
@@ -28,20 +28,20 @@ class FormWTFAddFilm(FlaskForm):
     submit = SubmitField("Enregistrer la Personne")
 
 
-class FormWTFUpdateFilm(FlaskForm):
+class FormUpdatePersonne(FlaskForm):
     """
         Dans le formulaire "film_update_wtf.html" on impose que le champ soit rempli.
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
 
-    nom_film_update_wtf = StringField("Clavioter le nom", widget=TextArea())
-    duree_film_update_wtf = StringField("Clavioter le prenom", widget=TextArea())
-    datesortie_film_update_wtf = DateField("Date de naissance", validators=[InputRequired("Date obligatoire"),
+    nom_personne_update_1 = StringField("Clavioter le nom", widget=TextArea())
+    prenom_personne_update_1 = StringField("Clavioter le prenom", widget=TextArea())
+    date_naiss_personne_update_1 = DateField("Date de naissance", validators=[InputRequired("Date obligatoire"),
                                                                                  DataRequired("Date non valide")])
     submit = SubmitField("Update Personne")
 
 
-class FormWTFDeleteFilm(FlaskForm):
+class FormDeletePersonne(FlaskForm):
     """
         Dans le formulaire "film_delete_wtf.html"
 
@@ -50,7 +50,7 @@ class FormWTFDeleteFilm(FlaskForm):
         submit_btn_conf_del : Bouton de confirmation pour effacer un "film".
         submit_btn_annuler : Bouton qui permet d'afficher la table "t_film".
     """
-    nom_film_delete_wtf = StringField("Effacer cette personne")
-    submit_btn_del_film = SubmitField("Effacer personne")
-    submit_btn_conf_del_film = SubmitField("Etes-vous sur d'effacer ?")
+    nom_personne_delete_1 = StringField("Effacer cette personne")
+    submit_btn_del_personne = SubmitField("Effacer personne")
+    submit_btn_conf_del_personne = SubmitField("Etes-vous sur d'effacer ?")
     submit_btn_annuler = SubmitField("Annuler")

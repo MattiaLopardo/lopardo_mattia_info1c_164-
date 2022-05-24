@@ -106,11 +106,11 @@ class ExceptionGenresFilmsAfficherData(Base):
     pass
 
 
-class ExceptionFilmUpdateWtf(Base):
+class ExceptionPersonneUpdate(Base):
     pass
 
 
-class ExceptionFilmDeleteWtf(Base):
+class ExceptionPersonneDelete(Base):
     pass
 
 

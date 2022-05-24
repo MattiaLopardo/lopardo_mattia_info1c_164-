@@ -12,7 +12,7 @@ from flask import url_for
 from APP_FILMS_164 import app
 from APP_FILMS_164.database.database_tools import DBconnection
 from APP_FILMS_164.erreurs.exceptions import *
-from APP_FILMS_164.genres.gestion_genres_wtf_forms import FormWTFAjouterGenres
+from APP_FILMS_164.genres.gestion_genres_wtf_forms import FormAjouterCategorie
 from APP_FILMS_164.genres.gestion_genres_wtf_forms import FormDeleteCategorie
 from APP_FILMS_164.genres.gestion_genres_wtf_forms import FormUpdateCategorie
 
@@ -99,7 +99,7 @@ def genres_afficher(order_by, id_categorie_sel):
 
 @app.route("/genres_ajouter", methods=['GET', 'POST'])
 def genres_ajouter_wtf():
-    form = FormWTFAjouterGenres()
+    form = FormAjouterCategorie()
     if request.method == "POST":
         try:
             if form.validate_on_submit():
@@ -188,7 +188,7 @@ def genre_update_wtf():
                 mybd_conn.execute(str_sql_id_categorie, valeur_select_dictionnaire)
             # Une seule valeur est suffisante "fetchone()", vu qu'il n'y a qu'un seul champ "nom genre" pour l'UPDATE
             data_nom_categorie = mybd_conn.fetchone()
-            print("data_nom_categorie ", data_nom_categorie, " type ", type(data_nom_categorie), " genre ",
+            print("data_nom_categorie ", data_nom_categorie, " type ", type(data_nom_categorie), " categorie ",
                   data_nom_categorie["nom_categorie"])
 
             # Afficher la valeur sélectionnée dans les champs du formulaire "genre_update_wtf.html"
@@ -289,7 +289,7 @@ def genre_delete_wtf():
                 # Une seule valeur est suffisante "fetchone()",
                 # vu qu'il n'y a qu'un seul champ "nom genre" pour l'action DELETE
                 data_nom_categorie = mydb_conn.fetchone()
-                print("data_nom_categorie ", data_nom_categorie, " type ", type(data_nom_categorie), " genre ",
+                print("data_nom_categorie ", data_nom_categorie, " type ", type(data_nom_categorie), " categorie ",
                       data_nom_categorie["id_categorie"])
 
             # Afficher la valeur sélectionnée dans le champ du formulaire "genre_delete_wtf.html"

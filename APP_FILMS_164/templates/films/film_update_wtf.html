@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %} Editer un FILM (WTF) {% endblock %}
+{% block title %} Editer une Personne {% endblock %}
 {% block body %}
 <div class="container">
 	<div class="row">
@@ -9,31 +9,31 @@
 			</p>
 			<form action="" method="POST" novalidate>
 				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
-				{{ form_update_film.hidden_tag() }}
+				{{ form_update_personne.hidden_tag() }}
 				<div class="form-group">
 					<p>
-						{{ form_update_film.nom_film_update_wtf.label }}<br>
-						{{ form_update_film.nom_film_update_wtf(size=32) }}<br>
-						{% for error in form_update_film.nom_film_update_wtf.errors %}
+						{{ form_update_personne.nom_personne_update_1.label }}<br>
+						{{ form_update_personne.nom_personne_update_1(size=32) }}<br>
+						{% for error in form_update_personne.nom_personne_update_1.errors %}
 							<span style="color: red;">[{{ error }}]</span>
 						{% endfor %}
 					</p>
 					<p>
-						{{ form_update_film.duree_film_update_wtf.label }}<br>
-						{{ form_update_film.duree_film_update_wtf(size=32) }}<br>
-						{% for error in form_update_film.duree_film_update_wtf.errors %}
+						{{ form_update_personne.prenom_personne_update_1.label }}<br>
+						{{ form_update_personne.prenom_personne_update_1(size=32) }}<br>
+						{% for error in form_update_personne.prenom_personne_update_1.errors %}
 						<span style="color: red;">[{{ error }}]</span>
 						{% endfor %}
 					</p>
 					<p>
-						{{ form_update_film.datesortie_film_update_wtf.label }}<br>
-						{{ form_update_film.datesortie_film_update_wtf(size=1232) }}<br>
-						{% for error in form_update_film.datesortie_film_update_wtf.errors %}
+						{{ form_update_personne.date_naiss_personne_update_1.label }}<br>
+						{{ form_update_personne.date_naiss_personne_update_1(size=1232) }}<br>
+						{% for error in form_update_personne.date_naiss_personne_update_1.errors %}
 						<span style="color: red;">[{{ error }}]</span>
 						{% endfor %}
 					</p>
 				</div>
-				{{ form_update_film.submit(class="btn btn-primary") }}
+				{{ form_update_personne.submit(class="btn btn-primary") }}
 			</form>
 		</div>
 	</div>
