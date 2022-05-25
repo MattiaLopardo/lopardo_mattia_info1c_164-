@@ -9,10 +9,10 @@ Exemples : https://flask.palletsprojects.com/en/2.1.x/quickstart/#a-minimal-appl
 """
 import sys
 
-from APP_FILMS_164 import SECRET_KEY_FLASK, app
-from APP_FILMS_164 import DEBUG_FLASK
-from APP_FILMS_164 import ADRESSE_SRV_FLASK
-from APP_FILMS_164 import PORT_FLASK
+from APP_EasyVista_164 import SECRET_KEY_FLASK, app
+from APP_EasyVista_164 import DEBUG_FLASK
+from APP_EasyVista_164 import ADRESSE_SRV_FLASK
+from APP_EasyVista_164 import PORT_FLASK
 from flask_cors import CORS
 
 
