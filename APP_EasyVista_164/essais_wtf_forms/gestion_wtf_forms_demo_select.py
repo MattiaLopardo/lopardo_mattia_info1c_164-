@@ -47,7 +47,7 @@ def demo_select_wtf():
 
         if request.method == "GET":
             with DBconnection() as mc_afficher:
-                strsql_categorie_afficher = """SELECT id_genre, intitule_genre FROM t_genre ORDER BY id_genre ASC"""
+                strsql_categorie_afficher = """SELECT id_personne, nom_personne FROM t_personne ORDER BY id_personne ASC"""
                 mc_afficher.execute(strsql_categorie_afficher)
 
             data_categorie = mc_afficher.fetchall()
@@ -60,7 +60,7 @@ def demo_select_wtf():
             """
             genre_val_list_dropdown = []
             for i in data_categorie:
-                genre_val_list_dropdown.append(i['intitule_genre'])
+                genre_val_list_dropdown.append(i['nom_personne'])
 
             # Aussi possible d'avoir un id numérique et un texte en correspondance
             # genre_val_list_dropdown = [(i["id_genre"], i["intitule_genre"]) for i in data_genres]
