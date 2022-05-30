@@ -1,20 +1,20 @@
 {% extends "base.html" %}
-{% block title %} Editer une categorie {% endblock %}
+{% block title %} Editer un mail  {% endblock %}
 {% block body %}
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			<p>
-				Editer un nom de categorie
+				Editer un nom de mail
 			</p>
 			<form action="" method="POST" novalidate>
 				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
 				{{ form_update.hidden_tag() }}
 				<div class="form-group">
 					<p>
-						{{ form_update.nom_categorie_update_1.label }}<br>
-						{{ form_update.nom_categorie_update_1(size=32) }}<br>
-						{% for error in form_update.nom_categorie_update_1.errors %}
+						{{ form_update.nom_mail_update_1.label }}<br>
+						{{ form_update.nom_mail_update_1(size=32) }}<br>
+						{% for error in form_update.nom_mail_update_1.errors %}
 							<span style="color: red;">[{{ error }}]</span>
 						{% endfor %}
 					</p>

@@ -114,6 +114,17 @@ class ExceptionPersonneDelete(Base):
     pass
 
 
+class ExceptionMailsAfficher(Base):
+    pass
+
+
+class ExceptionMailUpdate(Base):
+    pass
+
+
+class ExceptionMailDelete(Base):
+    pass
+
 """
     Grâce à la méthode "flash" cela permet de "raise" (remonter) les erreurs "try...execpt" dans la page "home.html"
 """

@@ -41,7 +41,10 @@ try:
     from APP_EasyVista_164.essais_wtf_forms import gestion_essai_wtf
     from APP_EasyVista_164.essais_wtf_forms import gestion_wtf_forms_demo_select
     from APP_EasyVista_164.categories import gestion_categories_crud
+    from APP_EasyVista_164.categories import gestion_categories_1_forms
     from APP_EasyVista_164.demos_om_164 import routes_demos
+    from APP_EasyVista_164.mails import gestion_mails_crud
+    from APP_EasyVista_164.mails import gestion_mails_1_forms
 
     from APP_EasyVista_164.personnes_categories import gestion_personnes_categories_crud
     from APP_EasyVista_164.erreurs import msg_avertissements
