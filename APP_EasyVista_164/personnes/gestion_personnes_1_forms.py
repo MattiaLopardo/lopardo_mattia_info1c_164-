@@ -38,7 +38,9 @@ class FormUpdatePersonne(FlaskForm):
     prenom_personne_update_1 = StringField("Clavioter le prenom", widget=TextArea())
     date_naiss_personne_update_1 = DateField("Date de naissance", validators=[InputRequired("Date obligatoire"),
                                                                                  DataRequired("Date non valide")])
-    FK_mail_personne_update_1 = IntegerField("Durée du film (minutes)")
+    FK_mail_personne_update_1 = IntegerField("FK_mail")
+    FK_adresse_personne_update = IntegerField("FK_adresse")
+    FK_telephone_personne_update = IntegerField("FK_telephone")
     submit = SubmitField("Update Personne")
 
 

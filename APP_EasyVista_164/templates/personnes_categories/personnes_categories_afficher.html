@@ -19,6 +19,18 @@
 						<th class="" >
 						  Date de naissance
 						</th>
+						<th class="" >
+						  FK_mail
+						</th>
+						<th class="" >
+						  FK_adresse
+						</th>
+						<th class="" >
+						  FK_telephone
+						</th>
+						<th class="" >
+						  liste mail
+						</th>
 					</tr>
 				</thead>
 			{% endif %}
@@ -37,6 +49,16 @@
 					  <th class="align-middle">
 						{{ row.date_naiss_personne|default("", True) }}
 					  </th>
+					  <th class="align-middle">
+						{{ row.FK_mail|default("", True) }}
+					  </th>
+					<th class="align-middle">
+						{{ row.FK_adresse|default("", True) }}
+					  </th>
+					<th class="align-middle">
+						{{ row.FK_telephone|default("", True) }}
+					  </th>
+					
 					  <th class="align-middle">
 						<a class="btn btn-primary" href="{{ url_for('personne_add_1') }}" role="button">Ajouter</a>
 					  </th>
@@ -71,5 +93,13 @@
 
 		</table>
 	</div>
+	<form action="{{ url_for('demo_select_dropdown_bootstrap') }}" method="POST" novalidate>
+        <select name="ma_petite_liste_unique" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            {% for row in data_genres_drop_down %}
+                <option value="{{ row.id_mail }}">{{ row.nom_mail }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" value="Submit">Choix</button>
+    </form>
 </div>
 {% endblock %}

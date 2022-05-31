@@ -90,8 +90,8 @@ def personne_update_1():
             prenom_personne_update = form_update_personne.prenom_personne_update_1.data
             date_naiss_personne_update = form_update_personne.date_naiss_personne_update_1.data
             FK_mail_personne_update = form_update_personne.FK_mail_personne_update_1.data
-            FK_adresse_personne_update = form_update_personne.FK_mail_personne_update_1.data
-            FK_telephone_personne_update = form_update_personne.FK_mail_personne_update_1.data
+            FK_adresse_personne_update = form_update_personne.FK_adresse_personne_update.data
+            FK_telephone_personne_update = form_update_personne.FK_telephone_personne_update.data
 
             valeur_update_dictionnaire = {"value_id_personne": id_personne_update,
                                           "value_nom_personne": nom_personne_update,

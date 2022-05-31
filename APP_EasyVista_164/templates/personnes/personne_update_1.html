@@ -39,6 +39,20 @@
 						<span style="color: red;">[{{ error }}]</span>
 						{% endfor %}
 					</p>
+					<p>
+						{{ form_update_personne.FK_adresse_personne_update.label }}<br>
+						{{ form_update_personne.FK_adresse_personne_update(size=1232) }}<br>
+						{% for error in form_update_personne.FK_adresse_personne_update.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form_update_personne.FK_telephone_personne_update.label }}<br>
+						{{ form_update_personne.FK_telephone_personne_update(size=1232) }}<br>
+						{% for error in form_update_personne.FK_telephone_personne_update.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
 				</div>
 				{{ form_update_personne.submit(class="btn btn-primary") }}
 			</form>

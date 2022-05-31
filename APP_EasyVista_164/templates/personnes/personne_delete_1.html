@@ -23,6 +23,15 @@
 					<th class="">
 						Date de naissance
 					</th>
+					<th class="">
+						FK_mail
+					</th>
+					<th class="" >
+						  FK_adresse
+						</th>
+						<th class="" >
+						  FK_telephone
+						</th>
 				</tr>
 				</thead>
 				{% endif %}
@@ -41,6 +50,15 @@
 					<th class="align-middle">
 						{{ row.date_naiss_personne|default("", True) }}
 					</th>
+				    <th class="align-middle">
+						{{ row.FK_mail|default("", True) }}
+					</th>
+				<th class="align-middle">
+						{{ row.FK_adresse|default("", True) }}
+					  </th>
+					<th class="align-middle">
+						{{ row.FK_telephone|default("", True) }}
+					  </th>
 
 
 				<tr>

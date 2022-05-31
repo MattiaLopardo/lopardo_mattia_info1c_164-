@@ -47,7 +47,7 @@ def demo_select_wtf():
 
         if request.method == "GET":
             with DBconnection() as mc_afficher:
-                strsql_categorie_afficher = """SELECT id_personne, nom_personne FROM t_personne ORDER BY id_personne ASC"""
+                strsql_categorie_afficher = """SELECT id_mail, nom_mail FROM t_mail ORDER BY id_mail ASC"""
                 mc_afficher.execute(strsql_categorie_afficher)
 
             data_categorie = mc_afficher.fetchall()
@@ -60,7 +60,7 @@ def demo_select_wtf():
             """
             genre_val_list_dropdown = []
             for i in data_categorie:
-                genre_val_list_dropdown.append(i['nom_personne'])
+                genre_val_list_dropdown.append(i['nom_mail'])
 
             # Aussi possible d'avoir un id numérique et un texte en correspondance
             # genre_val_list_dropdown = [(i["id_genre"], i["intitule_genre"]) for i in data_genres]
@@ -72,8 +72,8 @@ def demo_select_wtf():
             # Ceci est simplement une petite démo. on fixe la valeur PRESELECTIONNEE de la liste
             form_demo.genres_dropdown_wtf.data = "philosophique"
             genre_selectionne = form_demo.genres_dropdown_wtf.data
-            print("genre choisi dans la liste :", genre_selectionne)
-            session['genre_selectionne_get'] = genre_selectionne
+            print("mail choisi dans la liste :", genre_selectionne)
+            session['mail_selectionne_get'] = genre_selectionne
 
     # OM 2020.04.16 ATTENTION à l'ordre des excepts, il est très important de respecter l'ordre.
     except KeyError:
@@ -104,7 +104,7 @@ def demo_select_wtf():
 
 @app.route("/demo_select_dropdown_bootstrap", methods=['GET', 'POST'])
 def demo_select_dropdown_bootstrap():
-    print("genre choisi dans la liste :")
+    print("mail choisi dans la liste :")
     if request.method == 'POST':
         choix_list_drop_down = request.form.getlist("ma_petite_liste_unique")
         print("choix_list_drop_down ", choix_list_drop_down)
