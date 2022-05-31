@@ -54,6 +54,7 @@ try:
     from APP_EasyVista_164.personnes import gestion_personnes_1_forms
 
     from APP_EasyVista_164.telephones import gestion_telephones_crud
+    from APP_EasyVista_164.telephones import gestion_telephones_1_forms
 
 except Exception as e:
     print(f"Un erreur est survenue {type(e)} dans {__name__}.__init__ {e.args}")

@@ -16,13 +16,8 @@ class FormAjouterTelephone(FlaskForm):
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
     nom_telephone_regexp = "^([A-Z]|[a-zÀ-ÖØ-öø-ÿ])[A-Za-zÀ-ÖØ-öø-ÿ]*['\- ]?[A-Za-zÀ-ÖØ-öø-ÿ]+$"
-    number_telephone_1 = StringField("Clavioter le mail ", validators=[Length(min=2, max=20, message="min 2 max 20"),
-                                                                   Regexp(nom_telephone_regexp,
-                                                                          message="Pas de chiffres, de caractères "
-                                                                                  "spéciaux, "
-                                                                                  "d'espace à double, de double "
-                                                                                  "apostrophe, de double trait union")
-                                                                   ])
+    number_telephone_1 = StringField("Clavioter le numero ")
+
     submit = SubmitField("Enregistrer telephone")
 
 
@@ -32,15 +27,8 @@ class FormUpdateTelephone(FlaskForm):
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
     nom_mail_update_regexp = "^([A-Z]|[a-zÀ-ÖØ-öø-ÿ])[A-Za-zÀ-ÖØ-öø-ÿ]*['\- ]?[A-Za-zÀ-ÖØ-öø-ÿ]+$"
-    num_telephone_update_1 = StringField("Clavioter le mail ", validators=[Length(min=2, max=20, message="min 2 max 20"),
-                                                                          Regexp(nom_mail_update_regexp,
-                                                                                 message="Pas de chiffres, de "
-                                                                                         "caractères "
-                                                                                         "spéciaux, "
-                                                                                         "d'espace à double, de double "
-                                                                                         "apostrophe, de double trait "
-                                                                                         "union")
-                                                                          ])
+    num_telephone_update_1 = StringField("Clavioter le numero ")
+
     submit = SubmitField("Update telephone")
 
 
@@ -53,7 +41,7 @@ class FormDeleteTelephone(FlaskForm):
         submit_btn_conf_del : Bouton de confirmation pour effacer un "genre".
         submit_btn_annuler : Bouton qui permet d'afficher la table "t_genre".
     """
-    num_telephone_delete_1 = StringField("Effacer ce telephone")
-    submit_btn_del = SubmitField("Effacer mail")
+    num_telephone_delete_1 = StringField("Effacer ce numero")
+    submit_btn_del = SubmitField("Effacer numero")
     submit_btn_conf_del = SubmitField("Etes-vous sur d'effacer ?")
     submit_btn_annuler = SubmitField("Annuler")

@@ -12,9 +12,9 @@ from flask import url_for
 from APP_EasyVista_164 import app
 from APP_EasyVista_164.database.database_tools import DBconnection
 from APP_EasyVista_164.erreurs.exceptions import *
-from APP_EasyVista_164.mails.gestion_mails_1_forms import FormAjouterTelephone
-from APP_EasyVista_164.mails.gestion_mails_1_forms import FormDeleteTelephone
-from APP_EasyVista_164.mails.gestion_mails_1_forms import FormUpdateTelephone
+from APP_EasyVista_164.telephones.gestion_telephones_1_forms import FormAjouterTelephone
+from APP_EasyVista_164.telephones.gestion_telephones_1_forms import FormDeleteTelephone
+from APP_EasyVista_164.telephones.gestion_telephones_1_forms import FormUpdateTelephone
 
 """
     Auteur : OM 2021.03.16
