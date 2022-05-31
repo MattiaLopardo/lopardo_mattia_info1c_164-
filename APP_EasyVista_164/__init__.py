@@ -46,11 +46,14 @@ try:
     from APP_EasyVista_164.mails import gestion_mails_crud
     from APP_EasyVista_164.mails import gestion_mails_1_forms
 
+
     from APP_EasyVista_164.personnes_categories import gestion_personnes_categories_crud
     from APP_EasyVista_164.erreurs import msg_avertissements
 
     from APP_EasyVista_164.personnes import gestion_personnes_crud
     from APP_EasyVista_164.personnes import gestion_personnes_1_forms
+
+    from APP_EasyVista_164.telephones import gestion_telephones_crud
 
 except Exception as e:
     print(f"Un erreur est survenue {type(e)} dans {__name__}.__init__ {e.args}")
