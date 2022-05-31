@@ -249,7 +249,7 @@ def mail_delete_1():
                 valeur_delete_dictionnaire = {"value_id_mail": id_mail_delete}
                 print("valeur_delete_dictionnaire ", valeur_delete_dictionnaire)
 
-                str_sql_delete_personnes_mails = """DELETE FROM t_pers_avoir_mail WHERE FK_mail = %(value_id_mail)s"""
+                str_sql_delete_personnes_mails = """DELETE FROM t_personne WHERE FK_mail = %(value_id_mail)s"""
                 str_sql_delete_idmail = """DELETE FROM t_mail WHERE id_mail = %(value_id_mail)s"""
                 # Manière brutale d'effacer d'abord la "fk_genre", même si elle n'existe pas dans la "t_genre_film"
                 # Ensuite on peut effacer le genre vu qu'il n'est plus "lié" (INNODB) dans la "t_genre_film"
@@ -268,9 +268,8 @@ def mail_delete_1():
             print(id_mail_delete, type(id_mail_delete))
 
             # Requête qui affiche tous les personnes_categories qui ont le genre que l'utilisateur veut effacer
-            str_sql_mails_personnes_delete = """SELECT t_pers_avoir_mail, 	nom_personne, 	id_mail, nom_mail FROM t_pers_categorie
-                                            INNER JOIN t_personne ON t_pers_categorie.FK_personne = t_personne.id_personne
-                                            INNER JOIN t_mail ON t_pers_avoir_mail.FK_mail = t_mail.id_mail
+            str_sql_mails_personnes_delete = """SELECT id_personne, nom_personne, id_mail, nom_mail FROM t_personne
+                                            INNER JOIN t_mail ON t_personne.FK_mail = t_mail.id_mail
                                             WHERE FK_mail = %(value_id_mail)s"""
 
             with DBconnection() as mydb_conn:
