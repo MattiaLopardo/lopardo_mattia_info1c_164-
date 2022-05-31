@@ -40,7 +40,7 @@ def demo_select_wtf():
         if request.method == "POST" and form_demo.submit_btn_ok_dplist_genre.data:
 
             if form_demo.submit_btn_ok_dplist_genre.data:
-                print("Genre sélectionné : ",
+                print("mail sélectionné : ",
                       form_demo.genres_dropdown_wtf.data)
                 genre_selectionne = form_demo.genres_dropdown_wtf.data
                 form_demo.genres_dropdown_wtf.choices = session['genre_val_list_dropdown']
@@ -50,8 +50,8 @@ def demo_select_wtf():
                 strsql_categorie_afficher = """SELECT id_mail, nom_mail FROM t_mail ORDER BY id_mail ASC"""
                 mc_afficher.execute(strsql_categorie_afficher)
 
-            data_categorie = mc_afficher.fetchall()
-            print("demo_select_wtf data_categorie ", data_categorie, " Type : ", type(data_categorie))
+            data_mail = mc_afficher.fetchall()
+            print("demo_select_wtf data_mail ", data_mail, " Type : ", type(data_mail))
 
             """
                 Préparer les valeurs pour la liste déroulante de l'objet "form_demo"
@@ -59,7 +59,7 @@ def demo_select_wtf():
                 le formulaire qui utilise la liste déroulante "zzz_essais_om_104/demo_form_select_wtf.html"
             """
             genre_val_list_dropdown = []
-            for i in data_categorie:
+            for i in data_mail:
                 genre_val_list_dropdown.append(i['nom_mail'])
 
             # Aussi possible d'avoir un id numérique et un texte en correspondance
@@ -70,7 +70,7 @@ def demo_select_wtf():
             form_demo.genres_dropdown_wtf.choices = genre_val_list_dropdown
             session['genre_val_list_dropdown'] = genre_val_list_dropdown
             # Ceci est simplement une petite démo. on fixe la valeur PRESELECTIONNEE de la liste
-            form_demo.genres_dropdown_wtf.data = "philosophique"
+            form_demo.genres_dropdown_wtf.data = ""
             genre_selectionne = form_demo.genres_dropdown_wtf.data
             print("mail choisi dans la liste :", genre_selectionne)
             session['mail_selectionne_get'] = genre_selectionne
@@ -99,7 +99,7 @@ def demo_select_wtf():
     return render_template("zzz_essais_om_104/demo_form_select_wtf.html",
                            form=form_demo,
                            genre_selectionne=genre_selectionne,
-                           data_genres_drop_down=data_categorie)
+                           data_genres_drop_down=data_mail)
 
 
 @app.route("/demo_select_dropdown_bootstrap", methods=['GET', 'POST'])
