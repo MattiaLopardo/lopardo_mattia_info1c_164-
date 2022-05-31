@@ -32,6 +32,13 @@
 						<span style="color: red;">[{{ error }}]</span>
 						{% endfor %}
 					</p>
+					<p>
+						{{ form_update_personne.FK_mail_personne_update_1.label }}<br>
+						{{ form_update_personne.FK_mail_personne_update_1(size=1232) }}<br>
+						{% for error in form_update_personne.FK_mail_personne_update_1.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
 				</div>
 				{{ form_update_personne.submit(class="btn btn-primary") }}
 			</form>

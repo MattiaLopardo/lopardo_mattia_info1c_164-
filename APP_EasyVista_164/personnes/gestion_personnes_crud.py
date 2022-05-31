@@ -89,18 +89,26 @@ def personne_update_1():
             nom_personne_update = form_update_personne.nom_personne_update_1.data
             prenom_personne_update = form_update_personne.prenom_personne_update_1.data
             date_naiss_personne_update = form_update_personne.date_naiss_personne_update_1.data
+            FK_mail_personne_update = form_update_personne.FK_mail_personne_update_1.data
+            FK_adresse_personne_update = form_update_personne.FK_mail_personne_update_1.data
+            FK_telephone_personne_update = form_update_personne.FK_mail_personne_update_1.data
 
             valeur_update_dictionnaire = {"value_id_personne": id_personne_update,
                                           "value_nom_personne": nom_personne_update,
                                           "value_prenom_personne": prenom_personne_update,
-
-                                          "value_date_naiss_personne": date_naiss_personne_update
+                                          "value_date_naiss_personne": date_naiss_personne_update,
+                                          "value_FK_mail_personne": FK_mail_personne_update,
+                                          "value_FK_adresse_personne": FK_adresse_personne_update,
+                                          "value_FK_telephone_personne": FK_telephone_personne_update,
                                           }
             print("valeur_update_dictionnaire ", valeur_update_dictionnaire)
 
             str_sql_update_nom_personne = """UPDATE t_personne SET nom_personne = %(value_nom_personne)s,
                                                             prenom_personne = %(value_prenom_personne)s,
-                                                            date_naiss_personne = %(value_date_naiss_personne)s
+                                                            date_naiss_personne = %(value_date_naiss_personne)s,
+                                                            FK_mail = %(value_FK_mail_personne)s,
+                                                            FK_adresse = %(value_FK_adresse_personne)s,
+                                                            FK_telephone = %(value_FK_telephone_personne)s
                                                             WHERE id_personne = %(value_id_personne)s
                                                             """
             with DBconnection() as mconn_bd:

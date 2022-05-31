@@ -33,6 +33,7 @@ def personnes_categories_afficher(id_personne_sel):
         try:
             with DBconnection() as mc_afficher:
                 strsql_categories_personnes_afficher_data = """SELECT id_personne, nom_personne, prenom_personne, date_naiss_personne,
+                                                            FK_mail, FK_adresse, FK_telephone,
                                                             GROUP_CONCAT(nom_categorie) as PersCategorie FROM t_pers_categorie
                                                             RIGHT JOIN t_personne ON t_personne.id_personne = t_pers_categorie.FK_personne
                                                             LEFT JOIN t_categorie ON t_categorie.id_categorie = t_pers_categorie.FK_categorie
@@ -276,7 +277,9 @@ def categories_personnes_afficher_data(valeur_id_personne_selected_dict):
     print("valeur_id_personne_selected_dict...", valeur_id_personne_selected_dict)
     try:
 
-        strsql_personne_selected = """SELECT id_personne, nom_personne, prenom_personne, date_naiss_personne, GROUP_CONCAT(id_categorie) as PersCategorie FROM t_pers_categorie
+        strsql_personne_selected = """SELECT id_personne, nom_personne, prenom_personne, date_naiss_personne,
+                                        FK_mail, FK_adresse, FK_telephone
+                                        GROUP_CONCAT(id_categorie) as PersCategorie FROM t_pers_categorie
                                         INNER JOIN t_personne ON t_personne.id_personne = t_pers_categorie.FK_personne
                                         INNER JOIN t_categorie ON t_categorie.id_categorie = t_pers_categorie.FK_categorie
                                         WHERE id_personne = %(value_id_personne_selected)s"""
