@@ -9,7 +9,7 @@ USE Lopardo_Mattia_INFO1C_EasyVista_164_2021;
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 01 Juin 2022 à 09:12
+-- Généré le :  Mer 01 Juin 2022 à 12:30
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -34,16 +34,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `t_adresse` (
   `id_adresse` int(11) NOT NULL,
-  `adresse` varchar(50) DEFAULT NULL,
-  `NPA` int(25) DEFAULT NULL,
-  `ville` varchar(60) DEFAULT NULL
+  `nom_adresse` varchar(50) DEFAULT NULL,
+  `NPA_adresse` int(25) DEFAULT NULL,
+  `ville_adresse` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `t_adresse`
 --
 
-INSERT INTO `t_adresse` (`id_adresse`, `adresse`, `NPA`, `ville`) VALUES
+INSERT INTO `t_adresse` (`id_adresse`, `nom_adresse`, `NPA_adresse`, `ville_adresse`) VALUES
 (1, 'Via Altisio 36', 1688, 'Sommentier'),
 (2, 'Via Schliffras 98', 5637, 'Geltwil'),
 (3, 'Via Franscini 6', 9327, 'Tübach'),
@@ -96,7 +96,8 @@ INSERT INTO `t_demande` (`id_demande`, `nom_demande`, `numero_demande`, `descrip
 (2, 'nouvelle docking', 9924323, 'Le bénéficiare aimerait une nouvelle docking pour travailler correctement'),
 (3, 'nouvelle souris', 9892444, 'Le bénéficiare aimerait une nouvelle souris pour travailler correctement'),
 (4, 'nouveau clavier', 9821467, 'Le bénéficiare aimerait un nouveau clavier pour travailler correctement'),
-(5, 'nouveau écran', 9977668, 'Le bénéficiare aimerait un nouveau écran pour travailler correctement');
+(5, 'nouveau écran', 9977668, 'Le bénéficiare aimerait un nouveau écran pour travailler correctement'),
+(9, 'ef', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -107,7 +108,7 @@ INSERT INTO `t_demande` (`id_demande`, `nom_demande`, `numero_demande`, `descrip
 CREATE TABLE `t_incident` (
   `id_incident` int(11) NOT NULL,
   `nom_incident` varchar(40) DEFAULT NULL,
-  `numero_incident` int(11) NOT NULL,
+  `numero_incident` int(11) DEFAULT NULL,
   `description_incident` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -420,17 +421,17 @@ ALTER TABLE `t_telephone`
 -- AUTO_INCREMENT pour la table `t_adresse`
 --
 ALTER TABLE `t_adresse`
-  MODIFY `id_adresse` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_adresse` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `t_categorie`
 --
 ALTER TABLE `t_categorie`
-  MODIFY `id_categorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_categorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `t_demande`
 --
 ALTER TABLE `t_demande`
-  MODIFY `id_demande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_demande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `t_incident`
 --
@@ -440,12 +441,12 @@ ALTER TABLE `t_incident`
 -- AUTO_INCREMENT pour la table `t_mail`
 --
 ALTER TABLE `t_mail`
-  MODIFY `id_mail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_mail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `t_personne`
 --
 ALTER TABLE `t_personne`
-  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT pour la table `t_pers_attribuer_dem`
 --
@@ -460,7 +461,7 @@ ALTER TABLE `t_pers_attribuer_inc`
 -- AUTO_INCREMENT pour la table `t_pers_auteur_dem`
 --
 ALTER TABLE `t_pers_auteur_dem`
-  MODIFY `id_pers_auteur_dem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_pers_auteur_dem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `t_pers_auteur_inc`
 --
@@ -470,12 +471,12 @@ ALTER TABLE `t_pers_auteur_inc`
 -- AUTO_INCREMENT pour la table `t_pers_categorie`
 --
 ALTER TABLE `t_pers_categorie`
-  MODIFY `id_pers_categorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_pers_categorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `t_telephone`
 --
 ALTER TABLE `t_telephone`
-  MODIFY `id_telephone` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_telephone` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- Contraintes pour les tables exportées
 --

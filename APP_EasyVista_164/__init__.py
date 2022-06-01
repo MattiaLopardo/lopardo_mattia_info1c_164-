@@ -59,6 +59,9 @@ try:
     from APP_EasyVista_164.demandes import gestion_demandes_crud
     from APP_EasyVista_164.demandes import gestion_demandes_1_forms
 
+    from APP_EasyVista_164.adresses import gestion_adresses_crud
+    from APP_EasyVista_164.adresses import gestion_adresses_1_forms
+
     from APP_EasyVista_164.demandes_attribuer_personnes import gestion_demandes_attribuer_personnes_crud
 
 except Exception as e:

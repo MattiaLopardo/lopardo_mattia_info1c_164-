@@ -165,6 +165,21 @@ class ExceptionUpdateDemandeAttribuerPersonneSelected(Base):
 class ExceptionDemandesAttribuerPersonnesAfficherData(Base):
     pass
 
+
+class ExceptionAdresseAfficher(Base):
+    pass
+
+
+class strsql_insert_adresse(Base):
+    pass
+
+class ExceptionAdresseUpdate(Base):
+    pass
+
+
+class ExceptionAdresseDelete(Base):
+    pass
+
 """
     Grâce à la méthode "flash" cela permet de "raise" (remonter) les erreurs "try...execpt" dans la page "home.html"
 """
