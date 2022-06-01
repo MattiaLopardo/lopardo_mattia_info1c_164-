@@ -56,6 +56,11 @@ try:
     from APP_EasyVista_164.telephones import gestion_telephones_crud
     from APP_EasyVista_164.telephones import gestion_telephones_1_forms
 
+    from APP_EasyVista_164.demandes import gestion_demandes_crud
+    from APP_EasyVista_164.demandes import gestion_demandes_1_forms
+
+    from APP_EasyVista_164.demandes_attribuer_personnes import gestion_demandes_attribuer_personnes_crud
+
 except Exception as e:
     print(f"Un erreur est survenue {type(e)} dans {__name__}.__init__ {e.args}")
     sys.exit()

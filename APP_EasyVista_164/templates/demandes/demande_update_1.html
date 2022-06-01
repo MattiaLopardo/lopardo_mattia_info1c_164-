@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %} Editer une demande {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				Editer une demande
+			</p>
+			<form action="" method="POST" novalidate>
+				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+				{{ form_update_demande.hidden_tag() }}
+				<div class="form-group">
+					<p>
+						{{ form_update_demande.nom_demande_update.label }}<br>
+						{{ form_update_demande.nom_demande_update(size=32) }}<br>
+						{% for error in form_update_demande.nom_demande_update.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form_update_demande.numero_demande_update.label }}<br>
+						{{ form_update_demande.numero_demande_update(size=32) }}<br>
+						{% for error in form_update_demande.numero_demande_update.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form_update_demande.description_demande_update.label }}<br>
+						{{ form_update_demande.description_demande_update(size=1232) }}<br>
+						{% for error in form_update_demande.description_demande_update.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+
+				</div>
+				{{ form_update_demande.submit(class="btn btn-primary") }}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

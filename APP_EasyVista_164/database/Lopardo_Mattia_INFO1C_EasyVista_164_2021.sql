@@ -9,7 +9,7 @@ USE Lopardo_Mattia_INFO1C_EasyVista_164_2021;
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 31 Mai 2022 à 07:20
+-- Généré le :  Mer 01 Juin 2022 à 09:12
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -83,7 +83,7 @@ INSERT INTO `t_categorie` (`id_categorie`, `nom_categorie`) VALUES
 CREATE TABLE `t_demande` (
   `id_demande` int(11) NOT NULL,
   `nom_demande` varchar(40) DEFAULT NULL,
-  `numero_demande` int(11) NOT NULL,
+  `numero_demande` int(11) DEFAULT NULL,
   `description_demande` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -186,8 +186,8 @@ INSERT INTO `t_personne` (`id_personne`, `FK_mail`, `FK_adresse`, `FK_telephone`
 
 CREATE TABLE `t_pers_attribuer_dem` (
   `id_pers_attribuer_dem` int(11) NOT NULL,
-  `FK_personne` int(11) NOT NULL,
-  `FK_demande` int(11) NOT NULL,
+  `FK_personne` int(11) DEFAULT NULL,
+  `FK_demande` int(11) DEFAULT NULL,
   `date_attribution` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -210,8 +210,8 @@ INSERT INTO `t_pers_attribuer_dem` (`id_pers_attribuer_dem`, `FK_personne`, `FK_
 
 CREATE TABLE `t_pers_attribuer_inc` (
   `id_pers_attribuer_inc` int(11) NOT NULL,
-  `FK_personne` int(11) NOT NULL,
-  `Fk_incident` int(11) NOT NULL,
+  `FK_personne` int(11) DEFAULT NULL,
+  `Fk_incident` int(11) DEFAULT NULL,
   `date_attribution` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -231,8 +231,8 @@ INSERT INTO `t_pers_attribuer_inc` (`id_pers_attribuer_inc`, `FK_personne`, `Fk_
 
 CREATE TABLE `t_pers_auteur_dem` (
   `id_pers_auteur_dem` int(11) NOT NULL,
-  `FK_personne` int(11) NOT NULL,
-  `FK_demande` int(11) NOT NULL,
+  `FK_personne` int(11) DEFAULT NULL,
+  `FK_demande` int(11) DEFAULT NULL,
   `date_crea_dem` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -255,8 +255,8 @@ INSERT INTO `t_pers_auteur_dem` (`id_pers_auteur_dem`, `FK_personne`, `FK_demand
 
 CREATE TABLE `t_pers_auteur_inc` (
   `id_pers_auteur_inc` int(11) NOT NULL,
-  `FK_personne` int(11) NOT NULL,
-  `FK_incident` int(11) NOT NULL,
+  `FK_personne` int(11) DEFAULT NULL,
+  `FK_incident` int(11) DEFAULT NULL,
   `date_crea_inc` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -425,7 +425,7 @@ ALTER TABLE `t_adresse`
 -- AUTO_INCREMENT pour la table `t_categorie`
 --
 ALTER TABLE `t_categorie`
-  MODIFY `id_categorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_categorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `t_demande`
 --
@@ -440,12 +440,12 @@ ALTER TABLE `t_incident`
 -- AUTO_INCREMENT pour la table `t_mail`
 --
 ALTER TABLE `t_mail`
-  MODIFY `id_mail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_mail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT pour la table `t_personne`
 --
 ALTER TABLE `t_personne`
-  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT pour la table `t_pers_attribuer_dem`
 --
@@ -460,7 +460,7 @@ ALTER TABLE `t_pers_attribuer_inc`
 -- AUTO_INCREMENT pour la table `t_pers_auteur_dem`
 --
 ALTER TABLE `t_pers_auteur_dem`
-  MODIFY `id_pers_auteur_dem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_pers_auteur_dem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT pour la table `t_pers_auteur_inc`
 --
@@ -475,7 +475,7 @@ ALTER TABLE `t_pers_categorie`
 -- AUTO_INCREMENT pour la table `t_telephone`
 --
 ALTER TABLE `t_telephone`
-  MODIFY `id_telephone` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_telephone` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- Contraintes pour les tables exportées
 --

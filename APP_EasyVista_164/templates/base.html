@@ -67,6 +67,17 @@
 							<li><a class="nav-link" href="{{ url_for('personnes_categories_afficher', id_personne_sel=0) }}">Personne/Categorie</a></li>
 						</ul>
 					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navdropdowndemande" role="button"
+						   data-bs-toggle="dropdown" aria-expanded="false">
+							Demande
+						</a>
+						<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+							<li><a class="nav-link" href="{{ url_for('demandes_attribuer_personnes_afficher', id_demande_sel=0) }}">demande</a>
+							</li>
+							<li><a class="nav-link" href="{{ url_for('demandes_attribuer_personnes_afficher', id_demande_sel=0) }}">demande/personne</a></li>
+						</ul>
+					</li>
 
 					<li class="nav-item">
 						<a class="nav-link" href="{{ url_for('personnes_taille_dict') }}">Démo "TAILLE"</a>
