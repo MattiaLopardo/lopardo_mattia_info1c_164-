@@ -192,7 +192,7 @@ def adresse_update_1():
             # Une seule valeur est suffisante "fetchone()", vu qu'il n'y a qu'un seul champ "nom genre" pour l'UPDATE
             data_nom_adresse = mybd_conn.fetchone()
             print("data_nom_adresse ", data_nom_adresse, " type ", type(data_nom_adresse), " adresse ",
-                  data_nom_adresse["adresse"])
+                  data_nom_adresse[" nom_adresse"])
 
             # Afficher la valeur sélectionnée dans les champs du formulaire "adresse_update_1.html"
             form_update.nom_adresse_update_1.data = data_nom_adresse["nom_adresse"]
@@ -244,7 +244,7 @@ def adresse_delete_1():
                 data_personne_attribue_adresse_delete = session['data_personne_attribue_adresse_delete']
                 print("data_personne_attribue_adresse_delete ", data_personne_attribue_adresse_delete)
 
-                flash(f"Effacer l'adresse de façon définitive de la BD !!!", "danger")
+                flash(f"Effacer l'  adresse de façon définitive de la BD !!!", "danger")
                 # L'utilisateur vient de cliquer sur le bouton de confirmation pour effacer...
                 # On affiche le bouton "Effacer genre" qui va irrémédiablement EFFACER le genre
                 btn_submit_del = True
@@ -261,8 +261,8 @@ def adresse_delete_1():
                     mconn_bd.execute(str_sql_delete_personnes_adresses, valeur_delete_dictionnaire)
                     mconn_bd.execute(str_sql_delete_idadresse, valeur_delete_dictionnaire)
 
-                flash(f"adresse définitivement effacé !!", "success")
-                print(f"adresse définitivement effacé !!")
+                flash(f"  adresse définitivement effacé !!", "success")
+                print(f"  adresse définitivement effacé !!")
 
                 # afficher les données
                 return redirect(url_for('adresses_afficher', order_by="ASC", id_adresse_sel=0))
@@ -272,7 +272,7 @@ def adresse_delete_1():
             print(id_adresse_delete, type(id_adresse_delete))
 
             # Requête qui affiche tous les personnes_categories qui ont le genre que l'utilisateur veut effacer
-            str_sql_adresses_personnes_delete = """SELECT id_personne, 	nom_personne, 	id_adresse, nom_adresse, NPA_adresse, ville_adresse FROM t_personne
+            str_sql_adresses_personnes_delete = """SELECT id_personne, 	nom_personne, 	id_adresse, nom_adresse FROM t_personne
                                             INNER JOIN t_adresse ON t_personne.FK_adresse = t_adresse.id_adresse
                                             WHERE FK_adresse = %(value_id_adresse)s"""
 
@@ -293,10 +293,10 @@ def adresse_delete_1():
                 # vu qu'il n'y a qu'un seul champ "nom genre" pour l'action DELETE
                 data_nom_adresse = mydb_conn.fetchone()
                 print("data_nom_adresse ", data_nom_adresse, " type ", type(data_nom_adresse), " adresse ",
-                      data_nom_adresse["id_adresse"])
+                      data_nom_adresse["nom_adresse"])
 
             # Afficher la valeur sélectionnée dans le champ du formulaire "adresse_delete_1.html"
-            form_delete.nom_adresse_delete_1.data = data_nom_adresse["id_adresse"]
+            form_delete.nom_adresse_delete_1.data = data_nom_adresse["nom_adresse"]
 
             # Le bouton pour l'action "DELETE" dans le form. "adresse_delete_1.html" est caché.
             btn_submit_del = False
