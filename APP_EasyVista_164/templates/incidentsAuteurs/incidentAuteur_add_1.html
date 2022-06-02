@@ -1,26 +1,26 @@
 {% extends "base.html" %}
-{% block title %} Ajouter une demande {% endblock %}
+{% block title %} Ajouter une incident {% endblock %}
 {% block body %}
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			<p>
-				Ajouter une nouvelle demande
+				Ajouter un nouveau incident
 			</p>
 			<form action="" method="POST" novalidate>
 				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
-				{{ form_add_demandeAuteur.hidden_tag() }}
+				{{ form_add_incidentAuteur.hidden_tag() }}
 				<div class="form-group">
 					<p>
-						{{ form_add_demandeAuteur.nom_demandeAuteur_add_1.label }}<br>
-						{{ form_add_demandeAuteur.nom_demandeAuteur_add_1(size=32) }}<br>
-						{% for error in form_add_demandeAuteur.nom_demandeAuteur_add_1.errors %}
+						{{ form_add_incidentAuteur.nom_incidentAuteur_add_1.label }}<br>
+						{{ form_add_incidentAuteur.nom_incidentAuteur_add_1(size=32) }}<br>
+						{% for error in form_add_incidentAuteur.nom_incidentAuteur_add_1.errors %}
 							<span style="color: red;">[{{ error }}]</span>
 						{% endfor %}
 					</p>
 
 				</div>
-				{{ form_add_demandeAuteur.submit(class="btn btn-primary") }}
+				{{ form_add_incidentAuteur.submit(class="btn btn-primary") }}
 			</form>
 		</div>
 	</div>

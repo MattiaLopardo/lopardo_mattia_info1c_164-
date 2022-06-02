@@ -11,41 +11,41 @@ from wtforms.validators import Regexp
 from wtforms.widgets import TextArea
 
 
-class FormAddDemandeAuteur(FlaskForm):
+class FormAddIncidentAuteur(FlaskForm):
     """
         Dans le formulaire "categories_ajouter_1.html" on impose que le champ soit rempli.
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
     nom_personne_regexp = ""
-    nom_demandeAuteur_add_1 = StringField("nom de la demande ", widget=TextArea())
+    nom_incidentAuteur_add_1 = StringField("nom de l'incident ", widget=TextArea())
 
-    submit = SubmitField("Enregistrer la demande")
+    submit = SubmitField("Enregistrer l'incident")
 
 
-class FormUpdateDemandeAuteur(FlaskForm):
+class FormUpdateIncidentAuteur(FlaskForm):
     """
-        Dans le formulaire "demandeAuteur_update_1.html" on impose que le champ soit rempli.
+        Dans le formulaire "incidentAuteur_update_1.html" on impose que le champ soit rempli.
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
 
-    nom_demandeAuteur_update = StringField("Clavioter le nom", widget=TextArea())
-    numero_demandeAuteur_update = IntegerField("clavioter le numero")
-    description_demandeAuteur_update = StringField("Clavioter la description", widget=TextArea())
+    nom_incidentAuteur_update = StringField("Clavioter le nom", widget=TextArea())
+    numero_incidentAuteur_update = IntegerField("clavioter le numero")
+    description_incidentAuteur_update = StringField("Clavioter la description", widget=TextArea())
 
 
-    submit = SubmitField("Update demande")
+    submit = SubmitField("Update incident")
 
 
-class FormDeleteDemandeAuteur(FlaskForm):
+class FormDeleteIncidentAuteur(FlaskForm):
     """
-        Dans le formulaire "demandeAuteur_delete_1.html"
+        Dans le formulaire "incidentAuteur_delete_1.html"
 
         nom_film_delete_wtf : Champ qui reçoit la valeur du film, lecture seule. (readonly=true)
         submit_btn_del : Bouton d'effacement "DEFINITIF".
         submit_btn_conf_del : Bouton de confirmation pour effacer un "film".
         submit_btn_annuler : Bouton qui permet d'afficher la table "t_film".
     """
-    nom_personne_delete_1 = StringField("Effacer cette demande")
-    submit_btn_del_demande = SubmitField("Effacer demande")
-    submit_btn_conf_del_demande = SubmitField("Etes-vous sur d'effacer ?")
+    nom_personne_delete_1 = StringField("Effacer cet incident")
+    submit_btn_del_demande = SubmitField("Effacer incident")
+    submit_btn_conf_del_incidentAut = SubmitField("Etes-vous sur d'effacer ?")
     submit_btn_annuler = SubmitField("Annuler")

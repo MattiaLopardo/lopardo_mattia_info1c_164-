@@ -93,7 +93,17 @@
 							<li><a class="nav-link" href="{{ url_for('demandes_auteurs_personnes_afficher', id_demandeAuteur_sel=0) }}">demande/auteur</a></li>
 						</ul>
 					</li>
-
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navdropdownincidentAut" role="button"
+						   data-bs-toggle="dropdown" aria-expanded="false">
+							Incident_auteur
+						</a>
+						<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+							<li><a class="nav-link" href="{{ url_for('incidents_auteurs_personnes_afficher', id_incidentAuteur_sel=0) }}">incident</a>
+							</li>
+							<li><a class="nav-link" href="{{ url_for('incidents_auteurs_personnes_afficher', id_incidentAuteur_sel=0) }}">incident/auteur</a></li>
+						</ul>
+					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="{{ url_for('personnes_taille_dict') }}">Démo "TAILLE"</a>
 					</li>

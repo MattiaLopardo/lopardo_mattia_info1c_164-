@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %} Afficher demande auteur {% endblock %}
+{% block title %} Afficher incident auteur {% endblock %}
 {% block head %}
     <!--
         OM 2020.05.04
@@ -34,10 +34,10 @@
 
 			</p>
             <p>
-                demande.
+                incident.
             </p>
             <table class="table table-responsive-sm">
-                {% if data_demandeAuteur_selected %}
+                {% if data_incidentAuteur_selected %}
                     <thead>
                         <tr>
                             <th class="">
@@ -56,20 +56,20 @@
                     </thead>
             {% endif %}
 
-            {% for row in data_demandeAuteur_selected %}
+            {% for row in data_incidentAuteur_selected %}
 				<tbody>
 					<tr>
 						<td class="align-middle">
-							{{ row.id_demande }}
+							{{ row.id_incident }}
 						</td>
 						<td class="align-middle">
-							{{ row.nom_demande }}
+							{{ row.nom_incident }}
 						</td>
 						<td class="align-middle">
-							{{ row.numero_demande|default("", True) }}
+							{{ row.numero_incident|default("", True) }}
 						</td>
 						<td class="align-middle">
-							{{ row.description_demande|default("", True) }}
+							{{ row.description_incident|default("", True) }}
 						</td>
 
 					</tr>
@@ -78,7 +78,7 @@
 				<tbody>
 					<tr>
 						<td>
-							Aucune demande.
+							Aucun incident.
 						</td>
 						<td>
 							<a class="btn btn-primary" href="{{ url_for('avertissement_sympa_pour_geeks') }}" role="button">Add</a>
@@ -94,7 +94,7 @@
     <div class="row mx-md-n5">
       <div class="col px-md-5">
           <div class="p-3">
-            <form id="form_tags_select_confirm" action="{{ url_for('update_demande_auteur_personne_selected') }}" method="POST">
+            <form id="form_tags_select_confirm" action="{{ url_for('update_incident_auteur_personne_selected') }}" method="POST">
                 <div class="qtagselect isw360">
                     <select id="OM_JTSD" name="name_select_tags" class="qtagselect__select" multiple>
                         {% for row in data_personnes_non_attribues %}

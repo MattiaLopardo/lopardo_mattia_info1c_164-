@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %} Afficher Demande {% endblock %}
+{% block title %} Afficher incident {% endblock %}
 {% block body %}
 <div class="container">
 	<div class="col-md-12">
@@ -27,30 +27,30 @@
 			<tbody>
 				<tr>
 					  <th class="align-middle">
-						  {{ row.id_demande }}
+						  {{ row.id_incident }}
 					  </th>
 					  <th class="align-middle">
-						{{ row.nom_demande }}
+						{{ row.nom_incident }}
 					  </th>
 					  <th class="align-middle">
-						{{ row.numero_demande|default("", True) }}
+						{{ row.numero_incident|default("", True) }}
 					  </th>
 					  <th class="align-middle">
-						{{ row.description_demande|default("", True) }}
+						{{ row.description_incident|default("", True) }}
 					  </th>
 
 					  <th class="align-middle">
 						<a class="btn btn-primary" href="{{ url_for('avertissement_sympa_pour_geeks') }}" role="button">Ajouter</a>
 					  </th>
 					  <th class="align-middle">
-						<a class="btn btn-warning" href="{{ url_for('demandeAuteur_update_1', id_demandeAuteur_btn_edit_html=row.id_demande) }}" role="button">Edit</a>
+						<a class="btn btn-warning" href="{{ url_for('incidentAuteur_update_1', id_incidentAuteur_btn_edit_html=row.id_incident) }}" role="button">Edit</a>
 					  </th>
 					  <th class="align-middle">
 						<a class="btn btn-danger" href="{{ url_for('avertissement_sympa_pour_geeks') }}" role="button">Delete</a>
 					  </th>
 					<tr>
 						<td class="align-middle">
-							<a class="btn btn-warning" href="{{ url_for('edit_categorie_personne_selected', id_personne_categorie_edit_html=row.id_demande) }}" role="button">Modifier</a>
+							<a class="btn btn-warning" href="{{ url_for('edit_categorie_personne_selected', id_personne_categorie_edit_html=row.id_incident) }}" role="button">Modifier</a>
 						</td>
 					</tr>
 				</tr>
@@ -59,7 +59,7 @@
 				<tbody>
 					<tr>
 						<td>
-							Aucune demande.
+							Aucune incident.
 						</td>
 						<td>
 							<a class="btn btn-primary" href="{{ url_for('avertissement_sympa_pour_geeks') }}" role="button">Add</a>

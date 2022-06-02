@@ -35,7 +35,7 @@ def demandes_attribuer_personnes_afficher(id_demande_sel):
                 strsql_demandes_attribuer_personnes_afficher_data = """SELECT id_demande, nom_demande, numero_demande, description_demande,
                                                             GROUP_CONCAT(nom_personne) as demattpers FROM t_pers_attribuer_dem
                                                             RIGHT JOIN t_demande ON t_demande.id_demande = t_pers_attribuer_dem.FK_demande
-                                                            LEFT JOIN t_personne ON t_personne.id_personne = t_pers_attribuer_dem.FK_demande
+                                                            LEFT JOIN t_personne ON t_personne.id_personne = t_pers_attribuer_dem.FK_personne
                                                             GROUP BY id_demande"""
                 if id_demande_sel == 0:
                     # le paramètre 0 permet d'afficher tous les personnes

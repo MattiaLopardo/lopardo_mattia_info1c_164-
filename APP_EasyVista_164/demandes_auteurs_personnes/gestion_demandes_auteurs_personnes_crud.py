@@ -69,7 +69,7 @@ def demandes_auteurs_personnes_afficher(id_demandeAuteur_sel):
 
     print("demandes_auteurs_personnes_afficher  ", data_demandes_auteurs_personnes_afficher)
     # Envoie la page "HTML" au serveur.
-    return render_template("demandes_auteurs_personnes/demandes_auteurs_personnes_afficher.html", data=data_demandes_auteurs_personnes_afficher)
+    return render_template("incidents_auteurs_personnes/demandes_auteurs_personnes_afficher.html", data=data_demandes_auteurs_personnes_afficher)
 
 
 """
@@ -156,7 +156,7 @@ def edit_demande_auteurs_personne_selected():
                                                  f"{edit_demande_auteurs_personne_selected.__name__} ; "
                                                  f"{Exception_edit_demande_auteur_personne_selected}")
 
-    return render_template("demandes_auteurs_personnes/demandes_auteurs_personnes_modifier_tags_dropbox.html",
+    return render_template("incidents_auteurs_personnes/demandes_auteurs_personnes_modifier_tags_dropbox.html",
                            data_att_pers=data_personnesAuteurs_all,
                            data_demandeAuteur_selected=data_demande_auteur_personne_selected,
                            data_personnes_attribues=data_demandes_auteurs_personnes_attribues,
@@ -276,7 +276,7 @@ def demandes_auteurs_personnes_afficher_data(valeur_id_demandeAuteur_selected_di
     print("valeur_id_demandeAuteur_selected_dict...", valeur_id_demandeAuteur_selected_dict)
     try:
 
-        strsql_demandeAuteur_selected = """SELECT id_demande, numero_demande, description_demande,
+        strsql_demandeAuteur_selected = """SELECT id_demande, nom_demande, numero_demande, description_demande,
                                         GROUP_CONCAT(id_personne) as demautpers FROM t_pers_auteur_dem
                                         INNER JOIN t_demande ON t_demande.id_demande = t_pers_auteur_dem.FK_demande
                                         INNER JOIN t_personne ON t_personne.id_personne = t_pers_auteur_dem.FK_personne
