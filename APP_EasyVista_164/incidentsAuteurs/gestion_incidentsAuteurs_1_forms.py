@@ -11,34 +11,34 @@ from wtforms.validators import Regexp
 from wtforms.widgets import TextArea
 
 
-class FormAddDemande(FlaskForm):
+class FormAddDemandeAuteur(FlaskForm):
     """
         Dans le formulaire "categories_ajouter_1.html" on impose que le champ soit rempli.
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
     nom_personne_regexp = ""
-    nom_demande_add_1 = StringField("nom de la demande ", widget=TextArea())
+    nom_demandeAuteur_add_1 = StringField("nom de la demande ", widget=TextArea())
 
     submit = SubmitField("Enregistrer la demande")
 
 
-class FormUpdateDemande(FlaskForm):
+class FormUpdateDemandeAuteur(FlaskForm):
     """
-        Dans le formulaire "demande_update_1.html" on impose que le champ soit rempli.
+        Dans le formulaire "demandeAuteur_update_1.html" on impose que le champ soit rempli.
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
 
-    nom_demande_update = StringField("Clavioter le nom", widget=TextArea())
-    numero_demande_update = IntegerField("clavioter le numero")
-    description_demande_update = StringField("Clavioter la description", widget=TextArea())
+    nom_demandeAuteur_update = StringField("Clavioter le nom", widget=TextArea())
+    numero_demandeAuteur_update = IntegerField("clavioter le numero")
+    description_demandeAuteur_update = StringField("Clavioter la description", widget=TextArea())
 
 
     submit = SubmitField("Update demande")
 
 
-class FormDeleteDemande(FlaskForm):
+class FormDeleteDemandeAuteur(FlaskForm):
     """
-        Dans le formulaire "demande_delete_1.html"
+        Dans le formulaire "demandeAuteur_delete_1.html"
 
         nom_film_delete_wtf : Champ qui reçoit la valeur du film, lecture seule. (readonly=true)
         submit_btn_del : Bouton d'effacement "DEFINITIF".

@@ -64,6 +64,11 @@ try:
 
     from APP_EasyVista_164.demandes_attribuer_personnes import gestion_demandes_attribuer_personnes_crud
 
+    from APP_EasyVista_164.demandesAuteurs import gestion_demandesAuteur_crud
+    from APP_EasyVista_164.demandesAuteurs import gestion_demandesAuteurs_1_forms
+
+    from APP_EasyVista_164.demandes_auteurs_personnes import gestion_demandes_auteurs_personnes_crud
+
 except Exception as e:
     print(f"Un erreur est survenue {type(e)} dans {__name__}.__init__ {e.args}")
     sys.exit()

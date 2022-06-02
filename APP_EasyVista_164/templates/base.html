@@ -79,7 +79,18 @@
 						<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
 							<li><a class="nav-link" href="{{ url_for('demandes_attribuer_personnes_afficher', id_demande_sel=0) }}">demande</a>
 							</li>
-							<li><a class="nav-link" href="{{ url_for('demandes_attribuer_personnes_afficher', id_demande_sel=0) }}">demande/personne</a></li>
+							<li><a class="nav-link" href="{{ url_for('demandes_attribuer_personnes_afficher', id_demande_sel=0) }}">demande/attribuer</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navdropdowndemandeAut" role="button"
+						   data-bs-toggle="dropdown" aria-expanded="false">
+							Demande_auteur
+						</a>
+						<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+							<li><a class="nav-link" href="{{ url_for('demandes_auteurs_personnes_afficher', id_demandeAuteur_sel=0) }}">demande</a>
+							</li>
+							<li><a class="nav-link" href="{{ url_for('demandes_auteurs_personnes_afficher', id_demandeAuteur_sel=0) }}">demande/auteur</a></li>
 						</ul>
 					</li>
 

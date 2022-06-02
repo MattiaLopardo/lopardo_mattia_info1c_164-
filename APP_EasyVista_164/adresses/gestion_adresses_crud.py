@@ -105,12 +105,12 @@ def adresses_ajouter_1():
             if form.validate_on_submit():
                 name_adresse_1 = form.nom_adresse_1.data
                 name_adresse = name_adresse_1.lower()
-                valeurs_insertion_dictionnaire = {"value_nom_adresse": name_adresse}
+                valeurs_insertion_dictionnaire = {"value_name_adresse": name_adresse}
 
                 print("valeurs_insertion_dictionnaire ", valeurs_insertion_dictionnaire)
 
-                strsql_insert_adresse = """INSERT INTO t_adresse (id_adresse, nom_adresse, NPA_adresse, ville_adresse) VALUES 
-                (NULL,%(value_nom_adresse)s,%(value_NPA_adresse)s,%(value_ville_adresse)s) """
+                strsql_insert_adresse = """INSERT INTO t_adresse (id_adresse, nom_adresse) VALUES 
+                (NULL,%(value_name_adresse)s) """
                 with DBconnection() as mconn_bd:
                     mconn_bd.execute(strsql_insert_adresse, valeurs_insertion_dictionnaire)
 
@@ -172,7 +172,7 @@ def adresse_update_1():
             print("valeur_update_dictionnaire ", valeur_update_dictionnaire)
 
             str_sql_update_NomAdresse = """UPDATE t_adresse SET nom_adresse = %(value_nom_adresse)s, 
-            NPA_adresse = %(value_NPA_adresse)s WHERE id_adresse = %(value_id_adresse)s """
+            NPA_adresse = %(value_NPA_adresse)s, ville_adresse = %(value_ville_adresse)s WHERE id_adresse = %(value_id_adresse)s """
             with DBconnection() as mconn_bd:
                 mconn_bd.execute(str_sql_update_NomAdresse, valeur_update_dictionnaire)
 
