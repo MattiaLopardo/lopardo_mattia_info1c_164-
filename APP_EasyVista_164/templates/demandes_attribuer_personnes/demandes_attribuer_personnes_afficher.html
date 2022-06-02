@@ -54,7 +54,7 @@
 							<a class="btn btn-warning" href="{{ url_for('edit_demande_attribuer_personne_selected', id_demande_attribuer_personne_edit_html=row.id_demande) }}" role="button">Modifier</a>
 						</td>
 						<td class="align-middle" colspan="5">
-							{{ row.demattpers|default("PAS DE personne ASSIGNEE", True) }}
+							{{ row.demattpers|default("Pas DE personne ASSIGNEE", True) }}
 						</td>
 					</tr>
 				</tr>
@@ -74,13 +74,6 @@
 
 		</table>
 	</div>
-	<form action="{{ url_for('demo_select_dropdown_bootstrap') }}" method="POST" novalidate>
-        <select name="ma_petite_liste_unique" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-            {% for row in data_genres_drop_down %}
-                <option value="{{ row.id_mail }}">{{ row.nom_mail }}</option>
-            {% endfor %}
-        </select>
-        <button type="submit" value="Submit">Choix</button>
-    </form>
+
 </div>
 {% endblock %}

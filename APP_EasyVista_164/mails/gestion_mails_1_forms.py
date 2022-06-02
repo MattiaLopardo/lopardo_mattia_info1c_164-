@@ -15,7 +15,7 @@ class FormAjouterMail(FlaskForm):
         Dans le formulaire "mails_ajouter_1.html" on impose que le champ soit rempli.
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
-    nom_mail_regexp = "^([A-Z]|[a-zÀ-ÖØ-öø-ÿ])[A-Za-zÀ-ÖØ-öø-ÿ]*['\- ]?[A-Za-zÀ-ÖØ-öø-ÿ]+$"
+    nom_mail_regexp = ""
     nom_mail_1 = StringField("Clavioter le mail ", validators=[Length(min=2, max=20, message="min 2 max 20"),
                                                                    Regexp(nom_mail_regexp,
                                                                           message="Pas de chiffres, de caractères "
@@ -31,7 +31,7 @@ class FormUpdateMail(FlaskForm):
         Dans le formulaire "mail_update_1.html" on impose que le champ soit rempli.
         Définition d'un "bouton" submit avec un libellé personnalisé.
     """
-    nom_mail_update_regexp = "^([A-Z]|[a-zÀ-ÖØ-öø-ÿ])[A-Za-zÀ-ÖØ-öø-ÿ]*['\- ]?[A-Za-zÀ-ÖØ-öø-ÿ]+$"
+    nom_mail_update_regexp = ""
     nom_mail_update_1 = StringField("Clavioter le mail ", validators=[Length(min=2, max=20, message="min 2 max 20"),
                                                                           Regexp(nom_mail_update_regexp,
                                                                                  message="Pas de chiffres, de "

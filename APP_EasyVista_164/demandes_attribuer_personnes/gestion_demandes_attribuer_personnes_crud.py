@@ -32,7 +32,7 @@ def demandes_attribuer_personnes_afficher(id_demande_sel):
     if request.method == "GET":
         try:
             with DBconnection() as mc_afficher:
-                strsql_demandes_attribuer_personnes_afficher_data = """SELECT id_demande, numero_demande, description_demande,
+                strsql_demandes_attribuer_personnes_afficher_data = """SELECT id_demande, nom_demande, numero_demande, description_demande,
                                                             GROUP_CONCAT(nom_personne) as demattpers FROM t_pers_attribuer_dem
                                                             RIGHT JOIN t_demande ON t_demande.id_demande = t_pers_attribuer_dem.FK_demande
                                                             LEFT JOIN t_personne ON t_personne.id_personne = t_pers_attribuer_dem.FK_demande
@@ -156,7 +156,7 @@ def edit_demande_attribuer_personne_selected():
                                                  f"{edit_demande_attribuer_personne_selected.__name__} ; "
                                                  f"{Exception_edit_demande_attribuer_personne_selected}")
 
-    return render_template("demandes_attribuer_personnes/personnes_categories_modifier_tags_dropbox.html",
+    return render_template("demandes_attribuer_personnes/demandes_attribuer_personnes_modifier_tags_dropbox.html",
                            data_att_pers=data_personnes_all,
                            data_demande_selected=data_demande_attribuer_personne_selected,
                            data_personnes_attribues=data_demandes_attribuer_personnes_attribues,

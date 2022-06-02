@@ -34,7 +34,7 @@ def adresses_afficher(order_by, id_adresse_sel):
         try:
             with DBconnection() as mc_afficher:
                 if order_by == "ASC" and id_adresse_sel == 0:
-                    strsql_adresse_afficher = """SELECT * FROM t_adresse ORDER BY id_adresse ASC"""
+                    strsql_adresse_afficher = """SELECT id_adresse, nom_adresse, NPA_adresse, ville_adresse FROM t_adresse ORDER BY id_adresse ASC"""
                     mc_afficher.execute(strsql_adresse_afficher)
                 elif order_by == "ASC":
                     # C'EST LA QUE VOUS ALLEZ DEVOIR PLACER VOTRE PROPRE LOGIQUE MySql
@@ -109,7 +109,7 @@ def adresses_ajouter_1():
 
                 print("valeurs_insertion_dictionnaire ", valeurs_insertion_dictionnaire)
 
-                strsql_insert_adresse = """INSERT INTO t_adresse (id_adresse,nom_adresse, NPA_adresse, ville_adresse) VALUES 
+                strsql_insert_adresse = """INSERT INTO t_adresse (id_adresse, nom_adresse, NPA_adresse, ville_adresse) VALUES 
                 (NULL,%(value_nom_adresse)s,%(value_NPA_adresse)s,%(value_ville_adresse)s) """
                 with DBconnection() as mconn_bd:
                     mconn_bd.execute(strsql_insert_adresse, valeurs_insertion_dictionnaire)
@@ -192,7 +192,7 @@ def adresse_update_1():
             # Une seule valeur est suffisante "fetchone()", vu qu'il n'y a qu'un seul champ "nom genre" pour l'UPDATE
             data_nom_adresse = mybd_conn.fetchone()
             print("data_nom_adresse ", data_nom_adresse, " type ", type(data_nom_adresse), " adresse ",
-                  data_nom_adresse[" nom_adresse"])
+                  data_nom_adresse["nom_adresse"])
 
             # Afficher la valeur sélectionnée dans les champs du formulaire "adresse_update_1.html"
             form_update.nom_adresse_update_1.data = data_nom_adresse["nom_adresse"]

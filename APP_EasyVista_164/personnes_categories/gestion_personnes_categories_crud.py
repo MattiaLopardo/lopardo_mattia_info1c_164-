@@ -278,7 +278,7 @@ def categories_personnes_afficher_data(valeur_id_personne_selected_dict):
     try:
 
         strsql_personne_selected = """SELECT id_personne, nom_personne, prenom_personne, date_naiss_personne,
-                                        FK_mail, FK_adresse, FK_telephone
+                                        FK_mail, FK_adresse, FK_telephone,
                                         GROUP_CONCAT(id_categorie) as PersCategorie FROM t_pers_categorie
                                         INNER JOIN t_personne ON t_personne.id_personne = t_pers_categorie.FK_personne
                                         INNER JOIN t_categorie ON t_categorie.id_categorie = t_pers_categorie.FK_categorie
