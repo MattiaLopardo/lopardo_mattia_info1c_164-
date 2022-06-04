@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %} Editer un incident {% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				Editer un incident
+			</p>
+			<form action="" method="POST" novalidate>
+				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
+				{{ form_update_incidentAttribuer.hidden_tag() }}
+				<div class="form-group">
+					<p>
+						{{ form_update_incidentAttribuer.nom_incidentAttribuer_update.label }}<br>
+						{{ form_update_incidentAttribuer.nom_incidentAttribuer_update(size=32) }}<br>
+						{% for error in form_update_incidentAttribuer.nom_incidentAttribuer_update.errors %}
+							<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form_update_incidentAttribuer.numero_incidentAttribuer_update.label }}<br>
+						{{ form_update_incidentAttribuer.numero_incidentAttribuer_update(size=32) }}<br>
+						{% for error in form_update_incidentAttribuer.numero_incidentAttribuer_update.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+					<p>
+						{{ form_update_incidentAttribuer.description_incidentAttribuer_update.label }}<br>
+						{{ form_update_incidentAttribuer.description_incidentAttribuer_update(size=1232) }}<br>
+						{% for error in form_update_incidentAttribuer.description_incidentAttribuer_update.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</p>
+
+				</div>
+				{{ form_update_incidentAttribuer.submit(class="btn btn-primary") }}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

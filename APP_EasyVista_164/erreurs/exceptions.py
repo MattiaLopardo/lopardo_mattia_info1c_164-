@@ -237,6 +237,33 @@ class ExceptionIncidentsAuteursPersonnesAfficherData(Base):
     pass
 
 
+class strsql_insert_personneIncAttribuer(Base):
+    pass
+
+
+class ExceptionIncidentAttribuerUpdate(Base):
+    pass
+
+
+class ExceptionIncidentAttribuerDelete(Base):
+    pass
+
+
+class ExceptionIncidentsAttribuerAfficher(Base):
+    pass
+
+
+class ExceptionEditIncidentAttribuerPersonneSelected(Base):
+    pass
+
+
+class ExceptionUpdateIncidentAttribuerPersonneSelected(Base):
+    pass
+
+class ExceptionIncidentsAttribuerPersonnesAfficherData(Base):
+    pass
+
+
 """
     Grâce à la méthode "flash" cela permet de "raise" (remonter) les erreurs "try...execpt" dans la page "home.html"
 """

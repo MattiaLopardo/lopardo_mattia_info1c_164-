@@ -178,7 +178,7 @@ def incidentAuteur_delete_1():
             btn_submit_del = True
 
         # L'utilisateur a vraiment décidé d'effacer.
-        if form_delete_incidentAuteur.submit_btn_del_demande.data:
+        if form_delete_incidentAuteur.submit_btn_del_incidentAut.data:
             valeur_delete_dictionnaire = {"value_id_incidentAuteur": id_incidentAuteur_delete}
             print("valeur_delete_dictionnaire ", valeur_delete_dictionnaire)
 

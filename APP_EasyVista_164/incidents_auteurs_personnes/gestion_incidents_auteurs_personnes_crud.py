@@ -156,7 +156,7 @@ def edit_incident_auteurs_personne_selected():
                                                  f"{edit_incident_auteurs_personne_selected.__name__} ; "
                                                  f"{Exception_edit_incident_auteur_personne_selected}")
 
-    return render_template("incidents_auteurs_personnes/demandes_auteurs_personnes_modifier_tags_dropbox.html",
+    return render_template("incidents_auteurs_personnes/incidents_auteurs_personnes_modifier_tags_dropbox.html",
                            data_att_pers=data_personnesIncAuteurs_all,
                            data_incidentAuteur_selected=data_incident_auteur_personne_selected,
                            data_personnes_attribues=data_incidents_auteurs_personnes_attribues,

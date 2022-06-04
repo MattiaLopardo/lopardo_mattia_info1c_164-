@@ -69,8 +69,15 @@ try:
 
     from APP_EasyVista_164.incidents_auteurs_personnes import gestion_incidents_auteurs_personnes_crud
 
+    from APP_EasyVista_164.demandes_auteurs_personnes import gestion_demandes_auteurs_personnes_crud
+
     from APP_EasyVista_164.incidentsAuteurs import gestion_incidentsAuteurs_crud
     from APP_EasyVista_164.incidentsAuteurs import gestion_incidentsAuteurs_1_forms
+
+    from APP_EasyVista_164.incidentsAttribuer import gestion_incidentsAttribuer_crud
+    from APP_EasyVista_164.incidentsAttribuer import gestion_incidentsAttribuer_1_forms
+
+    from APP_EasyVista_164.incidents_attribuer_personnes import gestion_incidents_attribuer_personnes_crud
 
 except Exception as e:
     print(f"Un erreur est survenue {type(e)} dans {__name__}.__init__ {e.args}")
