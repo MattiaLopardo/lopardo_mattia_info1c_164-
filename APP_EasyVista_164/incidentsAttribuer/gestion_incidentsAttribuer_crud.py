@@ -166,7 +166,7 @@ def incidentAttribuer_delete_1():
         if form_delete_incidentAttribuer.submit_btn_annuler.data:
             return redirect(url_for("incidents_attribuer_personnes_afficher", id_incidentAttribuer_sel=0))
 
-        if form_delete_incidentAttribuer.submit_btn_conf_del_incidentAut.data:
+        if form_delete_incidentAttribuer.submit_btn_conf_del_incidentAtt.data:
             # Récupère les données afin d'afficher à nouveau
             # le formulaire "personnes/incidentAttribuer_delete_1.html" lorsque le bouton "Etes-vous sur d'effacer ?" est cliqué.
             data_incidentAttribuer_delete = session['data_incidentAttribuer_delete']

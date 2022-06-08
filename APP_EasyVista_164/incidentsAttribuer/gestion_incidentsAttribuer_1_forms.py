@@ -47,5 +47,5 @@ class FormDeleteIncidentAttribuer(FlaskForm):
     """
     nom_personne_delete_1 = StringField("Effacer cet incident")
     submit_btn_del_incidentAtt = SubmitField("Effacer incident")
-    submit_btn_conf_del_incidentAut = SubmitField("Etes-vous sur d'effacer ?")
+    submit_btn_conf_del_incidentAtt = SubmitField("Etes-vous sur d'effacer ?")
     submit_btn_annuler = SubmitField("Annuler")

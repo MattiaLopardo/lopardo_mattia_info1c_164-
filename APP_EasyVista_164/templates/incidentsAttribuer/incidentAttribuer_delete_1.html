@@ -63,7 +63,7 @@
 			<form action="" method="POST" novalidate>
 				<!-- Protection contre les attaques Cross-Site Request Forgery (CSRF) -->
 				{{ form_delete_incidentAttribuer.hidden_tag() }}
-				{{ form_delete_incidentAttribuer.submit_btn_conf_del_incidentAut(class="btn btn-info") }}
+				{{ form_delete_incidentAttribuer.submit_btn_conf_del_incidentAtt(class="btn btn-info") }}
 
 				{% if btn_submit_del %}
 					{{ form_delete_incidentAttribuer.submit_btn_del_incidentAtt(class="btn btn-danger") }}

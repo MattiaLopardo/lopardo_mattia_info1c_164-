@@ -90,14 +90,7 @@
 
 		</table>
 	</div>
-<form action="{{ url_for('demo_select_dropdown_bootstrap') }}" method="POST" novalidate>
-        <select name="ma_petite_liste_unique" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-            {% for row in data_genres_drop_down %}
-                <option value="{{ row.id_mail }}">{{ row.nom_mail }}</option>
-            {% endfor %}
-        </select>
-        <button type="submit" value="Submit">Choix</button>
-    </form>
+
 
 </div>
 
